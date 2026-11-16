@@ -102,8 +102,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .plan li .hand{font-size:2.1rem;margin-top:-4px}
 .plan li b{display:block;font-weight:700;font-size:1rem}
 .plan li em{font-style:normal;color:var(--muted);display:block;margin-top:4px}
-.plan .ring{position:absolute;left:-14px;top:2px;width:calc(100% + 26px);height:calc(100% - 2px);pointer-events:none;overflow:visible}
-.plan .note{position:absolute;right:18px;bottom:-12px;line-height:1.2;font-weight:700;font-size:.9375rem;background:var(--paper);padding:0 6px;transform:rotate(-3deg)}
+.plan .tag{display:inline-block;margin-bottom:6px;padding:3px 8px;border-radius:4px;background:var(--ink);color:var(--on-ink);font-weight:700;font-size:.75rem;letter-spacing:.02em;line-height:1.3}
 .plan-fig figcaption{font-size:.875rem;color:var(--muted);padding-left:4px}
 .proof{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:4px 16px;margin-top:4px;padding-top:22px;border-top:1px solid var(--line);font-size:1rem}
 .proof .hand{font-size:2.2rem}
@@ -137,7 +136,6 @@ tr.after{background:var(--paper)}
 .case-num{position:relative;display:inline-block;font-size:clamp(5rem,10vw,7.5rem);line-height:.85}
 .case-num.barred::before{content:"";position:absolute;z-index:-1;left:-.04em;right:-.06em;bottom:.08em;height:.32em;background:var(--lime);border-radius:.06em;transform:rotate(-1.5deg)}
 .case-num-wrap{position:relative;isolation:isolate}
-.case-num .circ{position:absolute;inset:-.22em -.28em -.12em -.22em;width:calc(100% + .5em);height:calc(100% + .34em);overflow:visible}
 .case h3{font-weight:800;font-size:1.5rem;letter-spacing:-.025em}
 .case .meta{font-size:.9375rem;color:var(--muted);margin-top:2px}
 .case .what{margin-top:16px;max-width:52ch}
@@ -325,9 +323,7 @@ form{display:grid;gap:20px}
           <ol>
             <li>
               <span class="hand" aria-hidden="true">1</span>
-              <span><b>Respuesta a los leads</b>Hoy contestan en 6 h. Llevarlo a menos de 15 min en horario comercial.<em>Qué esperar: más ventas con los mismos leads.</em></span>
-              <svg class="ring stroke-draw" viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M28 12C110 2 300 -2 386 16c14 10 10 60-6 74-90 12-270 14-354 0C6 84 2 34 12 20c8-10 30-12 52-13" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
-              <span class="note" aria-hidden="true">Empezá por acá</span>
+              <span><span class="tag">Empezá por acá</span><b>Respuesta a los leads</b>Hoy contestan en 6 h. Llevarlo a menos de 15 min en horario comercial.<em>Qué esperar: más ventas con los mismos leads.</em></span>
             </li>
             <li><span class="hand" aria-hidden="true">2</span><span><b>Formulario de la landing</b>Pide 9 datos. Dejar 4.<em>Qué esperar: más consultas y un costo por lead más bajo.</em></span></li>
             <li><span class="hand" aria-hidden="true">3</span><span><b>Medición en GA4</b>La página de gracias cuenta compras repetidas. Corregirlo antes de mover presupuesto.</span></li>
@@ -381,7 +377,7 @@ form{display:grid;gap:20px}
           </dl>
         </article>
         <article class="case">
-          <div class="case-num-wrap"><span class="case-num hand">+60%<svg class="circ stroke-draw" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M40 10C90 0 170 4 190 30c12 26-12 56-70 64-60 8-106-6-114-30C-2 40 20 16 62 8" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></div>
+          <div class="case-num-wrap"><span class="case-num hand">+60%</span></div>
           <div>
             <h3>Piccadely</h3>
             <p class="meta">E-commerce · Argentina · un mes sin fechas especiales vs. el mismo mes del año anterior</p>
@@ -554,7 +550,7 @@ form{display:grid;gap:20px}
         <h3>Trazos a mano</h3>
         <ul>
           <li>Números con marcador (Caveat Brush) para pasos, casos y el plan.</li>
-          <li>Trazo fino negro para señalar: el círculo de "Empezá por acá", la flecha de "Acá se suele perder la plata", el subrayado de la garantía.</li>
+          <li>Trazo fino negro solo donde señala algo: la flecha de "Acá se suele perder la plata" y el subrayado de la garantía. Sin círculos.</li>
           <li>Tildes y cruces dibujadas en lugar de íconos.</li>
           <li>Máximo dos o tres trazos por pantalla, y cada uno señala un dato.</li>
         </ul>
