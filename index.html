@@ -396,7 +396,7 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
 .kp .riel a i{font-style:normal;font-variant-numeric:tabular-nums;font-size:13px;width:16px}
 .kp .riel a:hover{color:var(--tinta)}
 .kp .riel a[aria-current="true"]{color:var(--tinta);font-weight:800}
-.kp .riel a[aria-current="true"] span{background:linear-gradient(transparent 58%,var(--lima) 58%)}
+.kp .riel a[aria-current="true"]{box-shadow:inset 0 -2px 0 var(--tinta)}
 .kp .riel .cols{display:flex;flex-direction:column;gap:8px;margin-top:22px;font-size:13.5px;color:var(--gris)}
 .kp .riel .cols div{display:flex;gap:8px;align-items:center}
 .kp .riel .cols .ok,.kp .riel .cols .no{width:20px;height:20px}
@@ -409,7 +409,7 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
 .kp .fila{padding:40px 0 44px;border-bottom:1px solid var(--regla);scroll-margin-top:84px}
 .kp .fila>header{display:flex;align-items:baseline;gap:14px;margin-bottom:24px}
 .kp .fila>header h3{font-size:clamp(24px,2.4vw,30px);font-weight:900;letter-spacing:-.03em}
-.kp .fila>header h3 i{font-style:normal;font-variant-numeric:tabular-nums;color:var(--gris);font-weight:700;margin-right:4px}
+.kp .fila>header h3 i{font-style:normal;font-variant-numeric:proportional-nums;color:var(--gris);font-weight:700;margin-right:4px}
 .kp .fila>header p{font-size:15px;color:var(--gris)}
 .kp .lados{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:48px}
 .kp .item{display:flex;gap:14px;align-items:flex-start}
@@ -429,7 +429,7 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
 .kp .piezas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:30px;border-top:1px solid var(--tinta)}
 .kp .pieza{padding:22px 22px 24px 0;display:flex;flex-direction:column;gap:12px}
 .kp .pieza+.pieza{padding-left:22px;border-left:1px solid var(--regla)}
-.kp .pieza .para-quien{font-size:13.5px;color:var(--gris);font-weight:600}
+.kp .pieza .para-quien{font-size:15px;color:var(--gris);line-height:1.4;margin-top:-6px}
 .kp .pieza h4{font-size:18px;font-weight:800;letter-spacing:-.015em;color:var(--tinta);line-height:1.25}
 .kp .pieza ul{display:flex;flex-direction:column;gap:7px;font-size:14.5px;line-height:1.45;margin-bottom:6px}
 .kp .pieza li{display:flex;gap:9px}
@@ -474,7 +474,7 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
 .kp .tasa{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--gris);padding:6px 0 6px 2px;border-top:1px solid var(--regla);border-bottom:1px solid var(--regla)}
 .kp .tasa svg{width:14px;height:14px;flex:none;color:var(--tinta)}
 .kp .tasa b{color:var(--tinta);font-weight:700}
-.kp .etapa.final{background:var(--lima);margin:0 -16px;padding:20px 16px;border-radius:6px}
+.kp .etapa.final{background:var(--lima);margin:0;padding:20px 16px;border-radius:6px}
 .kp .etapa.final span{font-weight:800;color:var(--tinta)}
 .kp .leyenda{font-size:14px;color:var(--gris);margin-top:14px}
 .kp .supuestos{margin-top:40px;font-size:16px;color:var(--gris);max-width:68ch}
@@ -487,11 +487,10 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
 .kp .fases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:clamp(56px,7vw,88px);border-top:2px solid var(--tinta);counter-reset:f}
 .kp .fase{padding:22px 22px 0 0;display:flex;flex-direction:column;gap:10px}
 .kp .fase+.fase{padding-left:22px;border-left:1px solid var(--regla)}
-.kp .fase .cuando{font-size:14px;font-weight:600;color:var(--gris)}
+.kp .fase .cuando{font-size:14px;font-weight:600;color:var(--gris);margin-top:-4px}
 .kp .fase h3{font-size:24px;font-weight:900;letter-spacing:-.03em}
 .kp .fase p{font-size:15.5px;line-height:1.5}
 .kp .fase .sale{margin-top:6px;font-weight:800;color:var(--tinta);font-size:15.5px}
-.kp .fase:last-child .sale mark{padding:0 2px}
 
 /* inversión */
 .kp .precio{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);border:2px solid var(--tinta);border-radius:8px;overflow:hidden;background:#fff}
@@ -500,7 +499,7 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
 .kp .monto .cifra small{white-space:normal}
 .kp .monto .cifra small{display:block;font-size:20px;font-weight:600;letter-spacing:-.01em;color:var(--texto);margin-top:12px}
 .kp .monto p{font-size:15.5px;color:var(--gris);max-width:36ch}
-.kp .monto .btn{margin-top:auto;align-self:flex-start}
+.kp .monto .btn{margin-top:10px;align-self:flex-start}
 .kp .incluye{padding:clamp(24px,3.4vw,40px)}
 .kp .incluye li{display:flex;gap:14px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--regla);font-size:16.5px;line-height:1.45;color:var(--tinta)}
 .kp .incluye li:last-child{border-bottom:0}
@@ -546,13 +545,33 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
   .kp .monto{border-right:0;border-bottom:1px solid var(--regla)}
   .kp .top .para{display:none}
 }
+@media (max-width:640px){
+  .kp .tabla table,.kp .tabla tbody,.kp .tabla tr,.kp .tabla td{display:block;min-width:0;width:auto}
+  .kp .tabla thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .kp .tabla tr{padding:16px 0;border-bottom:1px solid var(--regla)}
+  .kp .tabla td{display:grid;grid-template-columns:118px minmax(0,1fr);gap:12px;padding:4px 0;border:0;font-size:15px}
+  .kp .tabla td::before{content:attr(data-l);font-size:13.5px;font-weight:600;color:var(--gris)}
+  .kp .tabla td:first-child{display:block;font-size:17px;padding-bottom:8px}
+  .kp .tabla td:first-child::before{content:none}
+  .kp .tabla tr.ella{background:var(--lima);padding:16px 14px;border-bottom-color:var(--tinta)}
+  .kp .tabla tr.ella td{background:none;padding-left:0}
+  .kp .tabla tr.ella td::before{color:#3a3a3a}
+  .kp details .tabla table{display:table;min-width:520px}
+  .kp details .tabla thead{position:static;width:auto;height:auto;clip:auto;display:table-header-group}
+  .kp details .tabla tbody{display:table-row-group}
+  .kp details .tabla tr{display:table-row;padding:0}
+  .kp details .tabla td{display:table-cell;padding:12px 14px 12px 0;border-bottom:1px solid var(--regla)}
+  .kp details .tabla td::before{content:none}
+  .kp details .tabla{overflow-x:auto}
+}
 @media (max-width:560px){
   .kp{font-size:17px}
+  .kp .rol{display:table;margin:6px 0 0}
   .kp .tira{grid-template-columns:1fr}
   .kp .tira li,.kp .tira li+li,.kp .tira li:nth-child(4){padding:14px 0;border-right:0;border-top:0;border-bottom:1px solid var(--regla);flex-direction:row;align-items:baseline;gap:14px}
   .kp .tira .paso{min-width:118px}
   .kp .tira .venta{padding:18px 14px!important;flex-direction:column;align-items:flex-start}
-  .kp .etapa.final{margin:0 -8px;padding:18px 8px}
+  .kp .etapa.final{padding:18px 12px}
   .kp .acciones{width:100%}
   .kp .acciones .btn{flex:1 1 auto;justify-content:center}
   .kp dl div{grid-template-columns:1fr;gap:4px}
@@ -583,7 +602,7 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
   <div class="w">
     <img class="logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii04IC0xNjkuNiA2NTEuMiAyMjIuNCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJLZXlmcmFtZSI+PHRpdGxlPktleWZyYW1lPC90aXRsZT48cmVjdCB4PSIyIiB5PSItNTgiIHdpZHRoPSI2MzEuMiIgaGVpZ2h0PSI0NCIgcng9IjQiIGZpbGw9IiNEOUZGM0YiIHRyYW5zZm9ybT0icm90YXRlKC0yIDMxNy42IC0zNikiLz48cGF0aCBkPSJNOTEgLTI3UTkxIC0yNSA4OC4zIC0yMy43UTg1LjYgLTIyLjQgODEuMiAtMjIuNFE3Ny40IC0yMi40IDY5LjMgLTIzLjJRNjEuMiAtMjQgNTIuMiAtMjUuOFE0My4yIC0yNy42IDM1LjEgLTMwLjNRMjcgLTMzIDIzLjIgLTM2LjhRMjMuNiAtMzUuMiAyNC42IC0zMi41UTI1LjYgLTI5LjggMjYuOCAtMjYuNlEyOSAtMjEgMzAuOSAtMTUuM1EzMi44IC05LjYgMzIuOCAtNi4yUTMyLjggMC4yIDMxLjkgMy41UTMxIDYuOCAyOCA2LjhRMjUuNiA2LjggMjQuNiA0LjhRMjMuNiAyLjggMjMuNiAwUTIzLjYgLTAuMiAyMy42IC0xUTIzLjYgLTEuOCAyMy44IC01LjZRMjMuOCAtNy4yIDIzLjYgLTguOFEyMy40IC0xMC40IDIzIC0xMS42UTE5LjggLTE5LjQgMTcuMSAtMjcuM1ExNC40IC0zNS4yIDEyIC00NC44UTExLjQgLTQ2LjggMTAuNyAtNDkuOVExMCAtNTMgOS40IC01OC4xUTguOCAtNjMuMiA4LjQgLTcwLjdROCAtNzguMiA4IC04OVE4IC05Ny40IDkuNCAtMTAxLjlRMTAuOCAtMTA2LjQgMTIuOCAtMTA2LjRRMTQuNiAtMTA2LjQgMTUuOCAtMTAzLjdRMTcgLTEwMSAxNyAtOTguNlExNyAtOTIgMTYuOSAtODguNFExNi44IC04NC44IDE2LjggLTgzLjJRMTYuOCAtNzcgMTcuNCAtNzAuOVExOCAtNjQuOCAxOC44IC01OS42UTE5LjYgLTUzLjYgMjAuOCAtNDguMlEyMy4yIC01My4yIDI2LjEgLTU4LjlRMjkgLTY0LjYgMzIuMiAtNzAuM1EzNS40IC03NiAzOC42IC04MS42UTQxLjggLTg3LjIgNDQuOCAtOTIuMlE0Ni44IC05NS42IDQ5LjMgLTk4UTUxLjggLTEwMC40IDU0IC0xMDAuNFE1NS42IC0xMDAuNCA1Ny42IC05OS4xUTU5LjYgLTk3LjggNTkuNiAtOTUuNlE1OS42IC05NSA1OS40IC05NC4zUTU5LjIgLTkzLjYgNTkgLTkzLjJRNTggLTkxLjYgNTYuNyAtOTBRNTUuNCAtODguNCA1NC40IC04Ni44UTUxLjIgLTgyLjIgNDcuMiAtNzYuNFE0My4yIC03MC42IDM5LjcgLTY0LjlRMzYuMiAtNTkuMiAzMy44IC01NC4yUTMxLjQgLTQ5LjIgMzEuNCAtNDYuMlEzMS40IC00MyAzNS4yIC00MC42UTM5IC0zOC4yIDQ0LjYgLTM2LjVRNTAuMiAtMzQuOCA1Ni45IC0zMy43UTYzLjYgLTMyLjYgNjkuNCAtMzEuOVE3NS4yIC0zMS4yIDc5LjMgLTMwLjlRODMuNCAtMzAuNiA4My44IC0zMC42UTg4LjQgLTMwLjYgODkuNyAtMjkuOVE5MSAtMjkuMiA5MSAtMjdaTTE1Ny4yIC0yMVExNTcuNCAtMjAuNiAxNTcuNCAtMTkuOFExNTcuNCAtMTguNiAxNTUuNiAtMTYuMlExNTUgLTE1LjQgMTUzIC0xMy42UTE1MSAtMTEuOCAxNDcuNiAtMTBRMTQ0LjIgLTguMiAxMzkuMyAtNi44UTEzNC40IC01LjQgMTI3LjggLTUuNFExMjMuMiAtNS40IDExOC44IC03LjVRMTE0LjQgLTkuNiAxMTEgLTEzLjdRMTA3LjYgLTE3LjggMTA1LjQgLTIzLjlRMTAzLjIgLTMwIDEwMy4yIC0zOC4yUTEwMy4yIC00NiAxMDUuMiAtNTIuOFExMDcuMiAtNTkuNiAxMTAuMyAtNjQuOFExMTMuNCAtNzAgMTE3LjIgLTczUTEyMSAtNzYgMTI0LjYgLTc2UTEyNy44IC03NiAxMzEuMSAtNzQuN1ExMzQuNCAtNzMuNCAxMzcuMSAtNzEuNFExMzkuOCAtNjkuNCAxNDEuNCAtNjYuOVExNDMgLTY0LjQgMTQzIC02MS44UTE0MyAtNTguOCAxNDAuMyAtNTUuNlExMzcuNiAtNTIuNCAxMzMuOCAtNDkuN1ExMzAgLTQ3IDEyNi4yIC00NS4zUTEyMi40IC00My42IDEyMC4yIC00My42UTExOSAtNDMuNiAxMTguMSAtNDQuN1ExMTcuMiAtNDUuOCAxMTcuMiAtNDcuNFExMTcuMiAtNTAuMiAxMTkuNyAtNTEuOFExMjIuMiAtNTMuNCAxMjUuMiAtNTQuN1ExMjguMiAtNTYgMTMwLjcgLTU3LjhRMTMzLjIgLTU5LjYgMTMzLjIgLTYyLjhRMTMzLjIgLTYzLjIgMTMyLjIgLTY0LjhRMTMxLjIgLTY2LjQgMTI2LjggLTY2LjRRMTI0LjggLTY2LjQgMTIyLjIgLTY0LjFRMTE5LjYgLTYxLjggMTE3LjIgLTU3LjlRMTE0LjggLTU0IDExMy4yIC00OC43UTExMS42IC00My40IDExMS42IC0zNy4yUTExMS42IC0zMiAxMTMuNSAtMjcuOFExMTUuNCAtMjMuNiAxMTguNCAtMjAuN1ExMjEuNCAtMTcuOCAxMjUuNCAtMTYuMlExMjkuNCAtMTQuNiAxMzMuNiAtMTQuNlExMzYuNiAtMTQuNiAxNDAuMSAtMTUuOVExNDMuNiAtMTcuMiAxNDYuNyAtMTguN1ExNDkuOCAtMjAuMiAxNTIuMSAtMjEuNVExNTQuNCAtMjIuOCAxNTUgLTIyLjhRMTU1LjYgLTIyLjggMTU2LjMgLTIyLjJRMTU3IC0yMS42IDE1Ny4yIC0yMVpNMjEzLjIgLTkzLjZRMjEwLjYgLTc5LjggMjA4LjQgLTY3UTIwNy40IC02MS42IDIwNi40IC01NS43UTIwNS40IC00OS44IDIwNC41IC00NC4xUTIwMy42IC0zOC40IDIwMi45IC0zMy4zUTIwMi4yIC0yOC4yIDIwMS44IC0yNFEyMDEgLTE3LjYgMjAwLjYgLTkuNFEyMDAuMiAtMS4yIDE5OS44IDYuMlExOTkuNCAxNC44IDE5OS40IDIzLjZRMTk5LjQgMjUuNCAxOTkgMjcuNlExOTguNiAyOS44IDE5OC42IDMyUTE5OC42IDM0IDE5Ny43IDM1LjRRMTk2LjggMzYuOCAxOTUgMzYuOFExOTMuNCAzNi44IDE5Mi41IDM0LjNRMTkxLjYgMzEuOCAxOTEgMjguNVExOTAuNCAyNS4yIDE5MC4yIDIxLjlRMTkwIDE4LjYgMTkwIDE3LjJRMTkwIDE1LjYgMTkwIDEzLjNRMTkwIDExIDE5MC4zIDYuNVExOTAuNiAyIDE5MS4yIC01LjNRMTkxLjggLTEyLjYgMTkzIC0yNC40UTE5MyAtMjQuNiAxOTAuMyAtMjYuNFExODcuNiAtMjguMiAxODMuNyAtMzAuOVExNzkuOCAtMzMuNiAxNzUuNyAtMzYuOFExNzEuNiAtNDAgMTY4LjggLTQzUTE2OC40IC00My40IDE2Ny42IC00NC44UTE2Ni44IC00Ni4yIDE2Ni44IC00OC4yUTE2Ni44IC00OS4yIDE2Ny44IC01MC4zUTE2OC44IC01MS40IDE3MCAtNTEuNFExNzAuOCAtNTEuNCAxNzEuNiAtNTAuNlExNzYuMiAtNDYuNiAxODIuMiAtNDEuN1ExODguMiAtMzYuOCAxOTQgLTMyLjhRMTk0LjQgLTM2LjQgMTk1LjcgLTQzLjhRMTk3IC01MS4yIDE5OC40IC01OS43UTE5OS44IC02OC4yIDIwMS4xIC03Ni4yUTIwMi40IC04NC4yIDIwMyAtODlRMjAzIC04OS44IDIwMy40IC05MS42UTIwMy44IC05My40IDIwNC42IC05NS4yUTIwNS40IC05NyAyMDYuNCAtOTguM1EyMDcuNCAtOTkuNiAyMDguNiAtOTkuNlEyMDkuMiAtOTkuNiAyMTEuMiAtOTguNVEyMTMuMiAtOTcuNCAyMTMuMiAtOTMuNlpNMjkzLjIgLTE0My40UTI5My40IC0xNDMgMjkzLjQgLTE0MlEyOTMuNCAtMTQxIDI5My40IC0xMzkuOFEyOTMuNCAtMTM4LjQgMjkyLjQgLTEzOC40UTI5MiAtMTM4LjQgMjkxLjQgLTEzOC42UTI5MC44IC0xMzguOCAyOTAuNCAtMTM5UTI4Ni44IC0xNDAuNiAyODEuNyAtMTQzLjFRMjc2LjYgLTE0NS42IDI3MC4yIC0xNDUuNlEyNjMgLTE0NS42IDI1OC42IC0xNDAuMlEyNTQuMiAtMTM0LjggMjUxLjkgLTEyNy43UTI0OS42IC0xMjAuNiAyNDguOSAtMTEzLjhRMjQ4LjIgLTEwNyAyNDguMiAtMTA0UTI0OC4yIC0xMDEuOCAyNDguOSAtOTcuMVEyNDkuNiAtOTIuNCAyNTAuOCAtODcuNFEyNTIgLTgyLjQgMjUzLjYgLTc4LjNRMjU1LjIgLTc0LjIgMjU2LjggLTczLjJRMjU4IC03My4yIDI2MS4xIC03My40UTI2NC4yIC03My42IDI2Ni4yIC03My42UTI2OS42IC03My42IDI3Mi42IC03M1EyNzUuNiAtNzIuNCAyNzguOCAtNzIuNFEyNzkuNiAtNzIuNCAyODEuMiAtNzIuNFEyODIuOCAtNzIuNCAyODQuNSAtNzIuMlEyODYuMiAtNzIgMjg3LjQgLTcxLjVRMjg4LjYgLTcxIDI4OC42IC03MC4yUTI4OC42IC02OS4yIDI4Ny4yIC02OC40UTI4NS44IC02Ny42IDI4NCAtNjcuMVEyODIuMiAtNjYuNiAyODAuNCAtNjYuNFEyNzguNiAtNjYuMiAyNzcuNiAtNjYuMlEyNzYuNiAtNjYuMiAyNzUgLTY2LjNRMjczLjQgLTY2LjQgMjcxLjUgLTY2LjZRMjY5LjYgLTY2LjggMjY3LjkgLTY2LjlRMjY2LjIgLTY3IDI2NSAtNjdRMjYxLjggLTY3IDI2MS4xIC02Ni4zUTI2MC40IC02NS42IDI2MC40IC02My42UTI2MC40IC02MC42IDI2My4xIC01NS41UTI2NS44IC01MC40IDI2OSAtNDQuNlEyNzIuMiAtMzguOCAyNzQuOSAtMzIuNlEyNzcuNiAtMjYuNCAyNzcuNiAtMjEuMlEyNzcuNiAtMjAuMiAyNzcuMSAtMTcuNVEyNzYuNiAtMTQuOCAyNzUuNyAtMTJRMjc0LjggLTkuMiAyNzMuMiAtN1EyNzEuNiAtNC44IDI2OS42IC00LjhRMjY4IC00LjggMjY2LjcgLTUuN1EyNjUuNCAtNi42IDI2NS40IC04LjhRMjY1LjQgLTEyIDI2Ny4xIC0xNC44UTI2OC44IC0xNy42IDI2OC44IC0yMC44UTI2OC44IC0yMi40IDI2Ny4zIC0yNi4yUTI2NS44IC0zMCAyNjMuNiAtMzQuN1EyNjEuNCAtMzkuNCAyNTguOCAtNDQuNlEyNTYuMiAtNDkuOCAyNTMuOSAtNTQuMVEyNTEuNiAtNTguNCAyNTAgLTYxLjJRMjQ4LjQgLTY0IDI0OC4yIC02NC4yUTI0NC4yIC02Mi44IDI0MCAtNjEuNFEyMzUuOCAtNjAgMjMyLjQgLTU3LjJRMjMxIC01NS44IDIyOS44IC01NS44UTIyNy44IC01NS44IDIyNi4xIC01Ny40UTIyNC40IC01OSAyMjQuNCAtNjFRMjI0LjQgLTYzLjIgMjI1LjcgLTY0LjVRMjI3IC02NS44IDIyOC4yIC02Ni40UTIzMCAtNjcuNCAyMzMuOCAtNjguNlEyMzcuNiAtNjkuOCAyNDEuNCAtNzAuNlEyNDIuOCAtNzEgMjQ0IC03MS4zUTI0NS4yIC03MS42IDI0NS4yIC03Mi42UTI0NC42IC03NC42IDI0My41IC03Ny45UTI0Mi40IC04MS4yIDI0MS4zIC04NS44UTI0MC4yIC05MC40IDIzOS40IC05Ni4xUTIzOC42IC0xMDEuOCAyMzguNiAtMTA4LjRRMjM4LjYgLTExNS42IDI0MC4zIC0xMjMuNlEyNDIgLTEzMS42IDI0NS43IC0xMzguM1EyNDkuNCAtMTQ1IDI1NSAtMTQ5LjNRMjYwLjYgLTE1My42IDI2OC40IC0xNTMuNlEyNzIgLTE1My42IDI3Ni40IC0xNTIuOVEyODAuOCAtMTUyLjIgMjg0LjUgLTE1MC45UTI4OC4yIC0xNDkuNiAyOTAuNyAtMTQ3LjdRMjkzLjIgLTE0NS44IDI5My4yIC0xNDMuNFpNMzUzLjIgLTYxUTM1My4yIC01OS42IDM1MiAtNTguN1EzNTAuOCAtNTcuOCAzNDkuMiAtNTcuMlEzNDcuNiAtNTYuNiAzNDYgLTU2LjNRMzQ0LjQgLTU2IDM0My40IC01NlEzNDAuNCAtNTYgMzM5LjQgLTU2LjRRMzM4LjQgLTU2LjggMzM3LjggLTU2LjhRMzMyLjggLTU2LjggMzI5LjggLTU2UTMyNi44IC01NS4yIDMyNS4xIC01My40UTMyMy40IC01MS42IDMyMi45IC00OC45UTMyMi40IC00Ni4yIDMyMi40IC00Mi40UTMyMi40IC0zNiAzMjIuOSAtMzIuMlEzMjMuNCAtMjguNCAzMjMuOSAtMjZRMzI0LjQgLTIzLjYgMzI0LjkgLTIyLjNRMzI1LjQgLTIxIDMyNS40IC0xOS44UTMyNS40IC0xOC4yIDMyMy43IC0xNi40UTMyMiAtMTQuNiAzMjAuNiAtMTQuNlEzMTguMiAtMTQuNiAzMTYuMiAtMTguOVEzMTQuNCAtMjMuMiAzMTMuMSAtMjkuMVEzMTEuOCAtMzUgMzExIC00MC44UTMxMC4yIC00Ni42IDMxMC4yIC00OS42UTMxMC4yIC01MyAzMTAuNyAtNTYuMVEzMTEuNCAtNTkuMiAzMTIuNCAtNjEuNVEzMTMuNCAtNjMuOCAzMTQuNiAtNjUuMlEzMTUuOCAtNjYuNiAzMTcgLTY2LjZRMzE4IC02Ni42IDMxOC42IC02NS45UTMxOS4yIC02NS4yIDMxOS42IC02NC4zUTMyMCAtNjMuNCAzMjAuNSAtNjIuN1EzMjEgLTYyIDMyMS44IC02MlEzMjMuNiAtNjIgMzI3LjYgLTYzLjhRMzMxLjYgLTY1LjYgMzM3LjQgLTY1LjZRMzQyLjggLTY1LjYgMzQ1LjUgLTY1LjNRMzQ4LjIgLTY1IDM1MC44IC02NFEzNTEuNCAtNjMuOCAzNTIuMiAtNjMuMVEzNTMuMiAtNjIuNCAzNTMuMiAtNjFaTTQ2NC4yIC00MS42UTQ2NC4yIC0zOCA0NjAuOSAtMzIuN1E0NTcuNiAtMjcuNCA0NTIgLTIyLjRRNDQ2LjQgLTE3LjQgNDM5IC0xMy45UTQzMS42IC0xMC40IDQyMy42IC0xMC40UTQyMCAtMTAuNCA0MTYgLTExLjZRNDEyIC0xMi44IDQwOC4yIC0xNS4xUTQwNC40IC0xNy40IDQwMS40IC0yMC43UTM5OC40IC0yNCAzOTcgLTI4LjJRMzk1LjggLTI3IDM5NC4xIC0yNC4yUTM5Mi40IC0yMS40IDM5MC40IC0xOC41UTM4OC40IC0xNS42IDM4NiAtMTMuNVEzODMuNiAtMTEuNCAzODEgLTExLjRRMzc4LjQgLTExLjQgMzc2LjcgLTE0LjFRMzc1IC0xNi44IDM3NCAtMjAuMVEzNzMgLTIzLjQgMzcyLjYgLTI2LjRRMzcyLjIgLTI5LjQgMzcyLjIgLTI5LjhRMzcyLjIgLTMyLjIgMzczLjYgLTM4LjlRMzc1IC00NS42IDM3Ny44IC01Mi44UTM4MC42IC02MCAzODQuOSAtNjUuNlEzODkuMiAtNzEuMiAzOTUgLTcxLjJRMzk3LjIgLTcxLjIgMzk3LjkgLTY5LjNRMzk4LjYgLTY3LjQgMzk4LjYgLTY1LjZWLTU5LjZRMzk5LjYgLTU4LjggNDAwLjcgLTU4LjVRNDAxLjggLTU4LjIgNDAyLjcgLTU3LjdRNDAzLjYgLTU3LjIgNDA0LjEgLTU2LjJRNDA0LjYgLTU1LjIgNDA0LjYgLTUzUTQwNC42IC01MS42IDQwNC40IC01MC41UTQwNC4yIC00OS40IDQwNC4yIC00OC40UTQwNC4yIC00My4yIDQwNSAtMzguMlE0MDUuOCAtMzMuMiA0MDguMiAtMjkuM1E0MTAuNiAtMjUuNCA0MTQuOCAtMjIuOVE0MTkgLTIwLjQgNDI2IC0yMC40UTQzNC44IC0yMC40IDQ0MC45IC0yNC4xUTQ0NyAtMjcuOCA0NTEuMSAtMzIuM1E0NTUuMiAtMzYuOCA0NTcuNiAtNDAuNVE0NjAgLTQ0LjIgNDYxLjYgLTQ0LjJRNDY0LjIgLTQ0LjIgNDY0LjIgLTQxLjZaTTM5NCAtNTAuNFEzOTQgLTUxLjIgMzkzLjYgLTUxLjlRMzkzLjIgLTUyLjYgMzkzLjIgLTUzLjJRMzkzLjIgLTU0IDM5My42IC01NC42UTM5NCAtNTUuMiAzOTQgLTU2LjJRMzk0IC01Ni44IDM5My42IC01Ny4xUTM5My4yIC01Ny40IDM5My4yIC01Ny44UTM5MS40IC01Ny40IDM4OS41IC01NC40UTM4Ny42IC01MS40IDM4NS45IC00Ny40UTM4NC4yIC00My40IDM4My4yIC0zOS4zUTM4Mi4yIC0zNS4yIDM4Mi4yIC0zMi42UTM4Mi4yIC0zMS4yIDM4MyAtMjhRMzgzLjggLTI0LjggMzg0LjggLTIzLjhRMzg4LjIgLTMwLjggMzkxLjEgLTM3LjRRMzk0IC00NCAzOTQgLTUwLjRaTTU1NS40IC0xOC44UTU1NS40IC0xNy4yIDU1NC40IC0xNlE1NTMuNCAtMTQuOCA1NTIgLTE0LjFRNTUwLjYgLTEzLjQgNTQ5LjEgLTEzUTU0Ny42IC0xMi42IDU0Ni42IC0xMi42UTU0Mi40IC0xMi42IDUzOS40IC0xNy4xUTUzNi40IC0yMS42IDUzNC40IC0yNy4xUTUzMi40IC0zMi42IDUzMS41IC0zNy40UTUzMC42IC00Mi4yIDUzMC42IC00Mi42UTUyOS40IC00MC40IDUyOC4xIC0zNS4yUTUyNi44IC0zMCA1MjUgLTI0LjdRNTIzLjIgLTE5LjQgNTIwLjUgLTE1LjNRNTE3LjggLTExLjIgNTEzLjYgLTExLjJRNTExLjYgLTExLjIgNTA5LjggLTEzLjZRNTA4IC0xNiA1MDYuNCAtMTkuOFE1MDQuOCAtMjMuNiA1MDMuMyAtMjguNFE1MDEuOCAtMzMuMiA1MDAuMyAtMzcuOFE0OTguOCAtNDIuNCA0OTcuNCAtNDYuNVE0OTYgLTUwLjYgNDk0LjYgLTUzUTQ5My40IC01MCA0OTIuNSAtNDQuOFE0OTEuNiAtMzkuNiA0OTEgLTMzLjlRNDkwLjQgLTI4LjIgNDkwIC0yMi42UTQ4OS42IC0xNyA0ODkuNiAtMTIuOFE0ODkuNiAtMTAgNDg4LjEgLTguOFE0ODYuNiAtNy42IDQ4NSAtNy42UTQ4Mi44IC03LjYgNDgwLjYgLTEwLjVRNDc4LjQgLTEzLjQgNDc2LjIgLTE4UTQ3NCAtMjIuNiA0NzIuMSAtMjguNFE0NzAuMiAtMzQuMiA0NjguNyAtNDBRNDY3LjIgLTQ1LjggNDY2LjQgLTUxLjFRNDY1LjYgLTU2LjQgNDY1LjYgLTYwUTQ2NS42IC02Mi42IDQ2NS44IC02NC44UTQ2NiAtNjYuNiA0NjYuMSAtNjguMlE0NjYuMiAtNjkuOCA0NjYuMiAtNzBRNDY2LjIgLTcwLjYgNDY1LjkgLTcwLjhRNDY1LjYgLTcxIDQ2NS42IC03MS44UTQ2NS42IC03Mi40IDQ2Ny4xIC03My43UTQ2OC42IC03NSA0NzAuMiAtNzVRNDczIC03NSA0NzMuOSAtNzMuOFE0NzQuOCAtNzIuNiA0NzQuOCAtNzFRNDc0LjggLTcwLjQgNDc0LjcgLTY5LjJRNDc0LjYgLTY4IDQ3NC42IC02My44UTQ3NC42IC02MSA0NzUuNiAtNTUuNFE0NzYuNiAtNDkuOCA0NzggLTQ0UTQ3OS40IC0zOC4yIDQ4MC45IC0zMy4zUTQ4Mi40IC0yOC40IDQ4My40IC0yNy4yUTQ4My44IC0yOCA0ODMuOSAtMjkuMVE0ODQgLTMwLjIgNDg0LjIgLTMwLjhMNDg2LjQgLTQ3LjJRNDg3LjIgLTUzLjQgNDg5LjcgLTYwLjNRNDkyLjIgLTY3LjIgNDk1IC03MVE0OTYgLTcyLjYgNDk3LjIgLTcyLjZRNDk4LjQgLTcyLjYgNDk5LjQgLTcwLjhRNTAyLjggLTY1LjIgNTA0LjUgLTU5LjdRNTA2LjIgLTU0LjIgNTA3LjUgLTQ4LjlRNTA4LjggLTQzLjYgNTEwLjUgLTM4LjNRNTEyLjIgLTMzIDUxNS44IC0yNy42UTUxNy40IC0zMC4yIDUxOS44IC0zNi4xUTUyMi4yIC00MiA1MjQuNyAtNDhRNTI3LjIgLTU0IDUyOS40IC01OC41UTUzMS42IC02MyA1MzIuOCAtNjNRNTMzLjQgLTYzIDUzNC44IC02Mi44UTUzNi4yIC02Mi42IDUzNi44IC02Mi42UTUzOC42IC02Mi42IDUzOS44IC01OC41UTU0MSAtNTQuNCA1NDEuOSAtNDguOVE1NDIuOCAtNDMuNCA1NDMuNyAtMzcuOVE1NDQuNiAtMzIuNCA1NDUuOCAtMjkuNlE1NDYuNiAtMjcuNiA1NDguMiAtMjUuOFE1NDkuOCAtMjQgNTUxLjQgLTIyLjRRNTUzLjQgLTIwLjYgNTU1LjQgLTE4LjhaTTYyNyAtMjFRNjI3LjEgLTIwLjYgNjI3LjEgLTE5LjhRNjI3LjEgLTE4LjYgNjI1LjQgLTE2LjJRNjI0LjggLTE1LjQgNjIyLjggLTEzLjZRNjIwLjggLTExLjggNjE3LjQgLTEwUTYxNCAtOC4yIDYwOSAtNi44UTYwNC4xIC01LjQgNTk3LjYgLTUuNFE1OTMgLTUuNCA1ODguNSAtNy41UTU4NC4xIC05LjYgNTgwLjggLTEzLjdRNTc3LjQgLTE3LjggNTc1LjIgLTIzLjlRNTczIC0zMCA1NzMgLTM4LjJRNTczIC00NiA1NzUgLTUyLjhRNTc3IC01OS42IDU4MCAtNjQuOFE1ODMuMSAtNzAgNTg3IC03M1E1OTAuOCAtNzYgNTk0LjQgLTc2UTU5Ny42IC03NiA2MDAuOSAtNzQuN1E2MDQuMSAtNzMuNCA2MDYuOSAtNzEuNFE2MDkuNiAtNjkuNCA2MTEuMiAtNjYuOVE2MTIuOCAtNjQuNCA2MTIuOCAtNjEuOFE2MTIuOCAtNTguOCA2MTAgLTU1LjZRNjA3LjQgLTUyLjQgNjAzLjUgLTQ5LjdRNTk5LjggLTQ3IDU5NiAtNDUuM1E1OTIuMSAtNDMuNiA1OTAgLTQzLjZRNTg4LjggLTQzLjYgNTg3LjkgLTQ0LjdRNTg3IC00NS44IDU4NyAtNDcuNFE1ODcgLTUwLjIgNTg5LjUgLTUxLjhRNTkyIC01My40IDU5NSAtNTQuN1E1OTggLTU2IDYwMC41IC01Ny44UTYwMyAtNTkuNiA2MDMgLTYyLjhRNjAzIC02My4yIDYwMiAtNjQuOFE2MDEgLTY2LjQgNTk2LjYgLTY2LjRRNTk0LjYgLTY2LjQgNTkyIC02NC4xUTU4OS40IC02MS44IDU4NyAtNTcuOVE1ODQuNiAtNTQgNTgzIC00OC43UTU4MS40IC00My40IDU4MS40IC0zNy4yUTU4MS40IC0zMiA1ODMuMyAtMjcuOFE1ODUuMSAtMjMuNiA1ODguMSAtMjAuN1E1OTEuMSAtMTcuOCA1OTUuMSAtMTYuMlE1OTkuMSAtMTQuNiA2MDMuNCAtMTQuNlE2MDYuNCAtMTQuNiA2MDkuOSAtMTUuOVE2MTMuNCAtMTcuMiA2MTYuNSAtMTguN1E2MTkuNiAtMjAuMiA2MjEuOSAtMjEuNVE2MjQuMSAtMjIuOCA2MjQuOCAtMjIuOFE2MjUuNCAtMjIuOCA2MjYgLTIyLjJRNjI2LjggLTIxLjYgNjI3IC0yMVoiIGZpbGw9IiMxMTExMTEiLz48L3N2Zz4K" alt="Keyframe" width="100" height="34">
     <p class="para">Propuesta para la <b>Dra. Iardena Sadovnik</b><br>13 de noviembre de 2026</p>
-    <a class="btn btn-oscuro btn-chico" href="#proximo-paso" data-go="proximo-paso">Próximo paso</a>
+    <a class="btn btn-oscuro btn-chico" href="#proximo-paso" data-go="proximo-paso">Coordinar la llamada</a>
   </div>
 </header>
 
@@ -678,20 +697,20 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
           </div>
           <div class="piezas">
             <div class="pieza">
-              <p class="para-quien">Web institucional</p>
-              <h4>Donde te encuentran Google, Maps y los asistentes</h4>
+              <h4>Web institucional</h4>
+              <p class="para-quien">Donde te encuentran Google, Maps y los asistentes</p>
               <ul><li>Un solo dominio y un solo nombre.</li><li>El botón principal reserva la evaluación y dice el valor.</li><li>Reseñas, precios y formas de pago a la vista.</li><li>Preguntas con respuesta directa, que es lo que citan Google y ChatGPT.</li></ul>
               <a class="btn btn-oscuro btn-chico" href="#web">Ver la web <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
             <div class="pieza">
-              <p class="para-quien">Landing 1 · Google Search</p>
-              <h4>Para quien ya busca Invisalign® en Las Condes</h4>
+              <h4>Landing 1 · Google Search</h4>
+              <p class="para-quien">Para quien ya busca Invisalign® en Las Condes</p>
               <ul><li>La reserva está en la primera pantalla: día, hora y pago.</li><li>Reseñas reales antes de pedir nada.</li><li>Qué recibe por los $20.000, en concreto.</li><li>Sin menú ni enlaces que saquen de la página.</li></ul>
               <a class="btn btn-oscuro btn-chico" href="#landing-1">Ver la landing 1 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
             <div class="pieza">
-              <p class="para-quien">Landing 2 · Precio</p>
-              <h4>Para quien todavía está cotizando</h4>
+              <h4>Landing 2 · Precio</h4>
+              <p class="para-quien">Para quien todavía está cotizando</p>
               <ul><li>Responde el precio en el título.</li><li>Explica qué define el valor, sin mandar a nadie al chat.</li><li>Un test corto para saber si es candidato.</li><li>La comparación con brackets, que es la duda más buscada.</li></ul>
               <a class="btn btn-oscuro btn-chico" href="#landing-2">Ver la landing 2 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
@@ -749,13 +768,13 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
       <table>
         <thead><tr><th scope="col">Clínica</th><th scope="col">Google Maps</th><th scope="col">Evaluación</th><th scope="col">Cómo se reserva</th><th scope="col">Qué comunica</th></tr></thead>
         <tbody>
-          <tr><td>Align Dental · Dr. Tomás Salazar</td><td class="num">5,0 · 316</td><td class="nada">No publicada</td><td>Mensaje de Instagram</td><td>Precio y cuotas sin interés, en video</td></tr>
-          <tr><td>Dr. Cristian Martínez</td><td class="num">4,9 · 66</td><td class="num">$30.000</td><td>Agenda online</td><td>Invisalign Platinum Expert; un anuncio por tipo de caso</td></tr>
-          <tr><td>NovaSmile</td><td class="num">5,0 · 91</td><td class="nada">No publicada</td><td>Agenda en la web</td><td>Nivel Emerald; anuncios por perfil de paciente</td></tr>
-          <tr><td>Eudent</td><td class="nada">Sin dato</td><td>Gratis</td><td>Enlace en Instagram</td><td>12 cuotas sin interés y gestión de seguros</td></tr>
-          <tr><td>Invisaldent · Dr. Solari</td><td class="nada">Sin dato</td><td>Gratis</td><td>WhatsApp y formulario</td><td>Pago por alineador usado, garantía de 2 años</td></tr>
-          <tr><td>Clínica Alegra</td><td class="nada">Sin dato</td><td>Gratis + 20% de descuento</td><td>Agenda online</td><td>Tres planes con cuotas publicadas</td></tr>
-          <tr class="ella"><td>Dra. Iardena Sadovnik</td><td class="num">4,7 · 15</td><td class="num">$20.000</td><td>WhatsApp o formulario</td><td>Más de 1.000 casos, iTero Lumina, atención personal</td></tr>
+          <tr><td data-l="Clínica">Align Dental · Dr. Tomás Salazar</td><td class="num" data-l="Google Maps">5,0 · 316</td><td class="nada" data-l="Evaluación">No publicada</td><td data-l="Cómo se reserva">Mensaje de Instagram</td><td data-l="Qué comunica">Precio y cuotas sin interés, en video</td></tr>
+          <tr><td data-l="Clínica">Dr. Cristian Martínez</td><td class="num" data-l="Google Maps">4,9 · 66</td><td class="num" data-l="Evaluación">$30.000</td><td data-l="Cómo se reserva">Agenda online</td><td data-l="Qué comunica">Invisalign Platinum Expert; un anuncio por tipo de caso</td></tr>
+          <tr><td data-l="Clínica">NovaSmile</td><td class="num" data-l="Google Maps">5,0 · 91</td><td class="nada" data-l="Evaluación">No publicada</td><td data-l="Cómo se reserva">Agenda en la web</td><td data-l="Qué comunica">Nivel Emerald; anuncios por perfil de paciente</td></tr>
+          <tr><td data-l="Clínica">Eudent</td><td class="nada" data-l="Google Maps">Sin dato</td><td data-l="Evaluación">Gratis</td><td data-l="Cómo se reserva">Enlace en Instagram</td><td data-l="Qué comunica">12 cuotas sin interés y gestión de seguros</td></tr>
+          <tr><td data-l="Clínica">Invisaldent · Dr. Solari</td><td class="nada" data-l="Google Maps">Sin dato</td><td data-l="Evaluación">Gratis</td><td data-l="Cómo se reserva">WhatsApp y formulario</td><td data-l="Qué comunica">Pago por alineador usado, garantía de 2 años</td></tr>
+          <tr><td data-l="Clínica">Clínica Alegra</td><td class="nada" data-l="Google Maps">Sin dato</td><td data-l="Evaluación">Gratis + 20% de descuento</td><td data-l="Cómo se reserva">Agenda online</td><td data-l="Qué comunica">Tres planes con cuotas publicadas</td></tr>
+          <tr class="ella"><td data-l="Clínica">Dra. Iardena Sadovnik</td><td class="num" data-l="Google Maps">4,7 · 15</td><td class="num" data-l="Evaluación">$20.000</td><td data-l="Cómo se reserva">WhatsApp o formulario</td><td data-l="Qué comunica">Más de 1.000 casos, iTero Lumina, atención personal</td></tr>
         </tbody>
       </table>
     </div>
@@ -815,10 +834,10 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
     </details>
 
     <ol class="fases" aria-label="Calendario">
-      <li class="fase"><span class="cuando">Semanas 1 y 2</span><h3>Base</h3><p>Medición, marca y datos unificados, agenda con pago, proceso de respuesta, pedido de reseñas.</p><p class="sale">Sin pauta nueva</p></li>
-      <li class="fase"><span class="cuando">Semanas 2 a 5</span><h3>Web y landings</h3><p>Web institucional y las dos landings publicadas. Desde la semana 4, Google Search.</p><p class="sale">Primeras reservas</p></li>
-      <li class="fase"><span class="cuando">Meses 2 y 3</span><h3>Ajuste</h3><p>Las campañas aprenden. Visibilidad en asistentes y asesoría de redes en ritmo mensual.</p><p class="sale">2 a 4 pacientes por mes</p></li>
-      <li class="fase"><span class="cuando">Meses 4 a 6</span><h3>Escala</h3><p>Las reseñas y lo orgánico empiezan a traer pacientes sin costo por clic. Remarketing en Meta.</p><p class="sale"><mark>6 pacientes por mes</mark> al alcance</p></li>
+      <li class="fase"><h3>Base</h3><span class="cuando">Semanas 1 y 2</span><p>Medición, marca y datos unificados, agenda con pago, proceso de respuesta, pedido de reseñas.</p><p class="sale">Sin pauta nueva</p></li>
+      <li class="fase"><h3>Web y landings</h3><span class="cuando">Semanas 2 a 5</span><p>Web institucional y las dos landings publicadas. Desde la semana 4, Google Search.</p><p class="sale">Primeras reservas</p></li>
+      <li class="fase"><h3>Ajuste</h3><span class="cuando">Meses 2 y 3</span><p>Las campañas aprenden. Visibilidad en asistentes y asesoría de redes en ritmo mensual.</p><p class="sale">2 a 4 pacientes por mes</p></li>
+      <li class="fase"><h3>Escala</h3><span class="cuando">Meses 4 a 6</span><p>Las reseñas y lo orgánico empiezan a traer pacientes sin costo por clic. Remarketing en Meta.</p><p class="sale">6 pacientes por mes al alcance</p></li>
     </ol>
   </div>
 </section>
@@ -832,7 +851,7 @@ body{margin:0;background:var(--blanco);color:var(--negro);font-family:var(--font
       <div class="monto">
         <p class="cifra num">USD 600<small>por mes, honorarios Keyframe</small></p>
         <p>La pauta en Google y Meta se paga aparte, con tu tarjeta, directo a cada plataforma.</p>
-        <a class="btn btn-oscuro" href="#proximo-paso" data-go="proximo-paso">Próximo paso</a>
+        <a class="btn btn-oscuro" href="#proximo-paso" data-go="proximo-paso">Coordinar la llamada</a>
       </div>
       <ul class="incluye">
         <li><span class="ok"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.4l2.9 2.9 6.1-6.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Reestructuración de la web institucional</li>
