@@ -1,0 +1,623 @@
+<title>Auditoría de Google y Meta Ads · Keyframe</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Schibsted+Grotesk:wght@400;600;700;800;900&display=swap">
+<style>
+:root{
+  --paper:#FFFFFF;
+  --stone:#F4F4F2;
+  --ink:#111111;
+  --muted:#6B6B6B;
+  --line:#E4E4E1;
+  --lime:#D9FF3F;
+  --on-ink:#FFFFFF;
+  --on-ink-muted:#B9B9B4;
+  --ink-2:#1D1D1C;        --ink-line:#3A3A38;
+  --f-text:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-hand:"Caveat Brush","Schibsted Grotesk",cursive;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+::selection{background:var(--lime);color:var(--ink)}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1.5px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.dark :focus-visible{outline-color:var(--on-ink)}
+img{max-width:100%;display:block}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+button{font:inherit;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+.sec{padding-block:clamp(72px,10vw,128px)}
+.stone{background:var(--stone)}
+.dark{background:var(--ink);color:var(--on-ink)}
+.h2{font-weight:900;font-size:clamp(2.2rem,4.8vw,3.75rem);line-height:.98;letter-spacing:-.045em;max-width:19ch}
+.lede{font-size:clamp(1.125rem,1.6vw,1.3rem);line-height:1.5;max-width:46ch}
+.dark .lede{color:var(--on-ink-muted)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-bottom:clamp(40px,5vw,64px)}
+.hand{font-family:var(--f-hand);font-weight:400;letter-spacing:0;line-height:1}
+.ico{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round}
+
+.hl{position:relative;white-space:nowrap;z-index:0}
+.hl::before{content:"";position:absolute;z-index:-1;left:-.05em;right:-.07em;bottom:.04em;height:.44em;background:var(--lime);border-radius:.09em;transform:rotate(-1.5deg);transform-origin:left center}
+.ul{position:relative;white-space:nowrap}
+.ul::after{content:"";position:absolute;left:-.02em;right:-.04em;bottom:-.06em;height:.12em;background:var(--lime);border-radius:.06em;transform:rotate(-1.5deg)}
+@media (prefers-reduced-motion:no-preference){
+  .hl.draw::before{animation:mark .9s var(--ease) .3s both}
+}
+@keyframes mark{from{transform:rotate(-1.5deg) scaleX(.04)}to{transform:rotate(-1.5deg) scaleX(1)}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:52px;padding:0 1.5em;border-radius:6px;font:700 1.0625rem/1 var(--f-text);text-decoration:none;border:2px solid var(--ink);cursor:pointer;transition:transform .2s var(--ease),background-color .2s,color .2s}
+.btn-primary{background:var(--ink);color:var(--on-ink)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--on-ink)}
+.dark .btn-primary{background:var(--on-ink);color:var(--ink);border-color:var(--on-ink)}
+.dark .btn-ghost{color:var(--on-ink);border-color:var(--on-ink)}
+.dark .btn-ghost:hover{background:var(--on-ink);color:var(--ink)}
+
+.seg{display:inline-flex;padding:4px;border-radius:8px;background:var(--paper);border:1.5px solid var(--ink);gap:4px}
+.seg button{min-height:44px;padding:0 18px;border:0;border-radius:5px;background:transparent;font-weight:700;font-size:.9875rem;cursor:pointer;transition:background-color .25s var(--ease),color .25s}
+.seg button[aria-pressed="true"],.seg button[aria-selected="true"]{background:var(--ink);color:var(--on-ink)}
+.seg button:not([aria-pressed="true"]):not([aria-selected="true"]):hover{background:var(--stone)}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px}
+.logo img{height:40px;width:auto}
+.nav{display:flex;align-items:center;gap:28px;font-size:.9875rem}
+.nav a{text-decoration:none;padding-block:10px}
+.nav a:hover{text-decoration:underline}
+.nav .btn{min-height:44px;font-size:.9375rem;padding:0 1.1em}
+.menu-btn{display:none}
+
+.hero{padding-block:clamp(48px,7vw,88px) clamp(64px,8vw,104px)}
+.h1{font-weight:900;font-size:clamp(3rem,8.4vw,6rem);line-height:.92;letter-spacing:-.045em;max-width:13ch}
+.hero-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:start;margin-top:clamp(32px,4vw,52px)}
+.hero-copy{display:grid;gap:26px}
+.who{display:flex;align-items:center;gap:14px;font-size:1rem;line-height:1.45;max-width:48ch}
+.who img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.terms{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.9375rem;color:var(--muted)}
+.terms b{color:var(--ink);font-weight:700}
+.proof{display:flex;align-items:center;gap:16px;padding-top:22px;border-top:1px solid var(--line);font-size:1rem}
+.proof .hand{font-size:2.4rem;flex:none}
+.proof a{font-weight:700;white-space:nowrap}
+
+.plan-fig{margin:0;display:grid;gap:12px}
+.plan{background:var(--paper);border:1px solid var(--line);border-radius:6px;box-shadow:0 1px 2px rgba(17,17,17,.06),0 24px 48px -24px rgba(17,17,17,.25)}
+.plan-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:20px 22px 14px;border-bottom:1px solid var(--line)}
+.plan-head h3{font-weight:800;font-size:1.125rem;letter-spacing:-.02em}
+.plan-head span{font-size:.8125rem;color:var(--muted)}
+.plan ol{list-style:none;margin:0;padding:0}
+.plan li{border-bottom:1px solid var(--line)}
+.plan li:last-child{border-bottom:0}
+.plan-btn{width:100%;display:grid;grid-template-columns:30px minmax(0,1fr) 22px;gap:12px;align-items:center;padding:16px 22px;background:none;border:0;text-align:left;cursor:pointer}
+.plan-btn:hover{background:var(--stone)}
+.plan-btn .hand{font-size:1.9rem}
+.plan-btn b{font-weight:700;font-size:1rem;line-height:1.3}
+.plan-btn .ico{transition:transform .3s var(--ease)}
+.plan-btn[aria-expanded="true"] .ico{transform:rotate(45deg)}
+.tag{display:inline-block;margin-left:8px;padding:2px 7px;border-radius:4px;background:var(--ink);color:var(--on-ink);font-weight:700;font-size:.6875rem;letter-spacing:.02em;vertical-align:2px}
+.plan-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease)}
+.plan-body>div{overflow:hidden}
+.plan-body p{padding:0 22px 4px 64px;font-size:.9375rem;line-height:1.5}
+.plan-body p.exp{color:var(--muted);padding-bottom:18px}
+.plan li.open .plan-body{grid-template-rows:1fr}
+.plan-fig figcaption{font-size:.875rem;color:var(--muted)}
+
+.funnel-ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-bottom:52px}
+.gap-note{display:none;flex-basis:100%;font-weight:800;color:var(--ink)!important}
+.funnel-ctrl p{font-size:.9375rem;color:var(--muted)}
+.funnel{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;border-top:2px solid var(--ink);position:relative}
+.f-step{position:relative;display:grid;align-content:start;gap:8px;padding:22px 18px 24px;border-right:1px solid var(--line);background:var(--paper);text-align:left;border-top:0;border-left:0;border-bottom:1px solid var(--line);cursor:pointer;transition:background-color .3s var(--ease),color .3s,opacity .3s}
+.f-step:last-child{border-right:0}
+.f-step .hand{font-size:2.2rem}
+.f-step b{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;line-height:1.15}
+.f-step small{font-size:.875rem;color:var(--muted);line-height:1.4}
+.f-state{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:.8125rem;font-weight:700}
+.f-state .ico{width:18px;height:18px}
+.f-step:hover{background:#FAFAF8}
+.f-step[aria-selected="true"]{background:var(--ink);color:var(--on-ink)}
+.f-step[aria-selected="true"] small{color:var(--on-ink-muted)}
+.funnel.mode-report .f-step.after{background:var(--stone);color:#9A9A96}
+.funnel.mode-report .f-step.after small{color:#A3A39E}
+.funnel.mode-report .f-step.after[aria-selected="true"]{background:#2A2A29;color:var(--on-ink-muted)}
+.f-step .st-no{display:none}
+.funnel.mode-report .f-step.after .st-yes{display:none}
+.funnel.mode-report .f-step.after .st-no{display:inline-flex}
+.f-gap{position:absolute;z-index:2;top:-2px;bottom:0;left:calc(100%/3);width:0;border-left:2px dashed var(--ink);pointer-events:none}
+.f-gap span{position:absolute;top:-34px;left:-1px;white-space:nowrap;font-weight:800;font-size:.9375rem;letter-spacing:-.01em;padding-left:10px}
+.f-detail{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:20px 48px;margin-top:0;padding:28px 0 0;min-height:150px}
+.f-detail h3{font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.04em;line-height:1}
+.f-detail .who-sees{margin-top:10px;font-size:.9375rem;color:var(--muted)}
+.f-detail ul{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.f-detail li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;padding-block:12px;border-bottom:1px solid var(--line)}
+.f-detail li:first-child{border-top:1px solid var(--line)}
+.f-detail li .ico{width:20px;height:20px;margin-top:3px}
+
+.tabs{margin-bottom:36px}
+.case{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(28px,5vw,72px);align-items:start;border-top:2px solid var(--ink);padding-top:40px}
+.case[hidden]{display:none}
+.case-num{position:relative;display:inline-block;font-size:clamp(5.5rem,12vw,9rem);line-height:.85;isolation:isolate}
+.case-num.barred::before{content:"";position:absolute;z-index:-1;left:-.04em;right:-.06em;bottom:.08em;height:.3em;background:var(--lime);border-radius:.06em;transform:rotate(-1.5deg)}
+.case-num-cap{margin-top:16px;font-weight:700;font-size:1.0625rem;max-width:26ch}
+.case h3{font-weight:800;font-size:1.625rem;letter-spacing:-.025em}
+.case .meta{font-size:.9375rem;color:var(--muted);margin-top:4px}
+.case .what{margin-top:18px;max-width:56ch}
+.case dl{margin:28px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;border-top:1px solid var(--line);padding-top:20px}
+.case dt{font-size:.875rem;color:var(--muted)}
+.case dd{margin:4px 0 0;font-weight:800;font-size:1.5rem;letter-spacing:-.02em}
+.cases-note{margin-top:32px;font-size:.9375rem;color:var(--muted);max-width:70ch}
+
+.offer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:clamp(32px,6vw,96px);align-items:start}
+.price{display:grid;gap:6px;position:sticky;top:110px}
+.price .from{font-size:1rem;color:var(--muted)}
+.price .amount{font-weight:900;font-size:clamp(4.5rem,9vw,6rem);letter-spacing:-.05em;line-height:.9}
+.price .amount small{font-size:.3em;font-weight:800;letter-spacing:-.01em;vertical-align:1.1em;margin-right:.2em}
+.price p{max-width:30ch;margin-top:10px}
+.price .btn{margin-top:22px;justify-self:start}
+.timeline{list-style:none;margin:0;padding:0;display:grid;counter-reset:t}
+.timeline li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding-block:28px;border-bottom:1px solid var(--line)}
+.timeline li:first-child{border-top:2px solid var(--ink)}
+.timeline .when{font-weight:800;font-size:.875rem;color:var(--muted);padding-top:6px}
+.timeline h3{font-weight:800;font-size:1.375rem;letter-spacing:-.02em;margin-bottom:6px}
+.timeline p{max-width:52ch}
+.guarantee{display:flex;gap:16px;align-items:flex-start;margin-top:28px;padding:22px 24px;background:var(--paper);border-radius:6px;border:1px solid var(--line)}
+.guarantee .ico{width:28px;height:28px;margin-top:2px}
+.guarantee p{font-weight:800;font-size:clamp(1.15rem,2vw,1.4rem);letter-spacing:-.02em;line-height:1.3}
+
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:clamp(32px,6vw,88px);align-items:start}
+.about-photo{margin:0;display:grid;gap:10px}
+.about-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.about-photo figcaption{font-size:.875rem;color:var(--muted)}
+.about-body{display:grid;gap:26px}
+.about-body .lede{max-width:54ch}
+.tools{font-size:.9375rem;color:var(--muted);max-width:62ch}
+.tools b{color:var(--ink);font-weight:700}
+.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:8px}
+.quotes figure{margin:0;padding-top:18px;border-top:2px solid var(--ink)}
+.quotes blockquote{margin:0;font-weight:700;font-size:1.125rem;line-height:1.4;letter-spacing:-.01em}
+.quotes figcaption{margin-top:12px;font-size:.875rem;color:var(--muted)}
+
+.quiz{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:start}
+.q-list{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.q-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding-block:18px;border-bottom:1px solid #D7D7D3}
+.q-list p{font-weight:700;font-size:1.0625rem;line-height:1.35}
+.yn{display:inline-flex;gap:6px}
+.yn button{min-width:64px;min-height:44px;padding:0 14px;border:1.5px solid var(--ink);border-radius:6px;background:var(--paper);font-weight:700;cursor:pointer;transition:background-color .2s,color .2s}
+.yn button:hover{background:var(--stone)}
+.yn button[aria-pressed="true"]{background:var(--ink);color:var(--on-ink)}
+.q-result{position:sticky;top:110px;padding:28px;border-radius:6px;background:var(--paper);border:1px solid var(--line);display:grid;gap:14px;min-height:240px;align-content:start}
+.q-result .meter{display:flex;gap:6px}
+.q-result .meter i{flex:1;height:6px;border-radius:3px;background:var(--line);transition:background-color .3s}
+.q-result .meter i.on{background:var(--ink)}
+.q-result h3{font-weight:900;font-size:clamp(1.6rem,3vw,2.1rem);letter-spacing:-.04em;line-height:1.05}
+.q-result p{font-size:1rem}
+.q-result .btn{justify-self:start;margin-top:4px}
+.q-result .btn[hidden]{display:none}
+
+.faq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,48px)}
+.faq div{border-top:2px solid var(--ink);padding-top:18px;display:grid;gap:10px;align-content:start}
+.faq h3{font-weight:800;font-size:1.1875rem;letter-spacing:-.02em;line-height:1.25}
+.faq p{color:#2E2E2E;font-size:1rem}
+
+.close .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,6vw,96px);align-items:start}
+.close .logo-dark{height:44px;width:auto;margin-bottom:40px}
+.close .h2{max-width:14ch}
+.recap{margin-top:30px;display:grid;gap:12px;font-size:1.0625rem;color:var(--on-ink-muted);max-width:40ch}
+.recap b,.recap a{color:var(--on-ink);font-weight:700}
+form{display:grid;gap:20px}
+.close .field input,.close .field select,.close .field textarea{width:100%;min-height:52px;padding:12px 14px;border-radius:6px;border:1.5px solid #4A4A48;background:var(--ink-2);color:var(--on-ink);font:400 1rem/1.4 var(--f-text);transition:border-color .2s}
+.close .field textarea{min-height:120px;resize:vertical}
+.close .field ::placeholder{color:#A3A39E}
+.close .field input:hover,.close .field select:hover,.close .field textarea:hover{border-color:#77776F}
+.close .field input:focus,.close .field select:focus,.close .field textarea:focus{outline:none;border-color:var(--on-ink);box-shadow:0 0 0 3px rgba(255,255,255,.18)}
+.field .hint{font-size:.8125rem;color:var(--on-ink-muted);margin-top:-4px}
+.field[data-error] input,.field[data-error] select{border-color:#FF9C8A}
+.field .err{display:none;font-size:.875rem;color:#FFB4A6}
+.field[data-error] .err{display:block}
+.form-foot{display:grid;gap:14px}
+.form-foot .btn{width:100%}
+.form-foot .btn[disabled]{opacity:.6;cursor:progress}
+.small{font-size:.875rem;color:var(--on-ink-muted)}
+.small a{color:var(--on-ink)}
+.done{border:1.5px solid #4A4A48;border-radius:6px;padding:28px;display:grid;gap:10px}
+.done h3{font-weight:800;font-size:1.5rem;letter-spacing:-.02em}
+.foot{border-top:1px solid #2A2A29;padding-block:22px;font-size:.875rem;color:var(--on-ink-muted)}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px}
+.foot a{color:var(--on-ink);text-decoration:none;padding-block:12px}
+.foot a:hover{text-decoration:underline}
+.foot nav{display:flex;gap:20px}
+
+.sticky{display:none}
+
+@media (max-width:1000px){
+  .funnel{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .f-step:nth-child(3n){border-right:0}
+  .f-gap{display:none}
+  .funnel-ctrl .gap-note{display:block}
+  .funnel-ctrl{margin-bottom:24px}
+}
+@media (max-width:960px){
+  .hero-row,.sec-head,.case,.offer,.about,.close .wrap,.quiz,.f-detail{grid-template-columns:minmax(0,1fr)}
+  .price,.q-result{position:static}
+  .faq{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:720px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px var(--gut-r) 16px var(--gut)}
+  .nav.open{display:flex}
+  .nav a{padding-block:14px;border-bottom:1px solid var(--line)}
+  .nav .btn{display:none}
+  .menu-btn{display:inline-flex;min-height:44px;padding:0 14px;border:1.5px solid var(--ink);border-radius:6px;background:none;font:700 .9375rem var(--f-text);color:var(--ink);align-items:center;cursor:pointer}
+  .logo img{height:34px}
+  .ctas .btn{flex:1 1 100%}
+  .funnel{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .f-step{border-right:1px solid var(--line)!important;padding:16px 14px 18px}
+  .f-step:nth-child(2n){border-right:0!important}
+  .f-step b{font-size:1.0625rem}
+  .seg{width:100%}
+  .seg button{flex:1;padding:0 10px;font-size:.9375rem}
+  .case dl{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .quotes{grid-template-columns:minmax(0,1fr)}
+  .q-list li{grid-template-columns:minmax(0,1fr)}
+  .timeline li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;gap:10px;padding:10px var(--gut-r) calc(10px + env(safe-area-inset-bottom,0px)) var(--gut);background:var(--paper);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s var(--ease)}
+  .sticky.on{transform:none}
+  .sticky .btn{flex:1;min-height:48px}
+  .sticky .btn-ghost{flex:0 0 auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Keyframe, inicio"><img src="./keyframe-logo.svg" alt="Keyframe" width="117" height="40"></a>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">Menú</button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#que-reviso">Qué reviso</a>
+      <a href="#casos">Casos</a>
+      <a href="#auditoria">La auditoría</a>
+      <a class="btn btn-primary" href="#contacto">Pedir auditoría</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <h1 class="h1" id="h1">Reviso tu pauta hasta la <span class="hl draw">venta</span>, no hasta el clic.</h1>
+      <div class="hero-row">
+        <div class="hero-copy">
+          <p class="lede">Casi nunca el problema está solo en las campañas. Reviso tus cuentas, la landing y cómo responden los leads en una auditoría 1:1, y te llevás el plan por escrito.</p>
+          <p class="who"><img src="./lucia-560.jpg" alt="" width="48" height="48"><span><strong>Soy Lucía.</strong> Audito Google y Meta Ads (también TikTok, LinkedIn y Mercado Ads) para negocios, agencias y freelancers de LATAM.</span></p>
+          <div class="ctas" id="hero-ctas">
+            <a class="btn btn-primary" href="#contacto">Pedir auditoría</a>
+            <a class="btn btn-ghost" href="https://wa.me/5491123439712?text=Hola%20Lu%2C%20quiero%20consultarte%20por%20una%20auditor%C3%ADa" target="_blank" rel="noopener">Escribirme por WhatsApp</a>
+          </div>
+          <p class="terms"><b>Desde USD 80</b><span>30 min de videollamada</span><span>Plan escrito en 48 h</span></p>
+          <p class="proof"><span class="hand">x2,1</span><span>de facturación mensual en La Alfombrería (Chile), una cuenta que gestioné. <a href="#casos">Ver casos</a></span></p>
+        </div>
+
+        <figure class="plan-fig">
+          <div class="plan">
+            <div class="plan-head"><h3>Plan de acción</h3><span>Tienda online · ejemplo</span></div>
+            <ol id="plan">
+              <li class="open">
+                <button class="plan-btn" aria-expanded="true" aria-controls="p1"><span class="hand" aria-hidden="true">1</span><b>Respuesta a los leads <span class="tag">Empezá por acá</span></b><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button>
+                <div class="plan-body" id="p1"><div><p>Hoy contestan en 6 h. Llevarlo a menos de 15 min en horario comercial.</p><p class="exp">Qué esperar: más ventas con los mismos leads.</p></div></div>
+              </li>
+              <li>
+                <button class="plan-btn" aria-expanded="false" aria-controls="p2"><span class="hand" aria-hidden="true">2</span><b>Formulario de la landing</b><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button>
+                <div class="plan-body" id="p2"><div><p>Pide 9 datos. Dejar 4.</p><p class="exp">Qué esperar: más consultas y un costo por lead más bajo.</p></div></div>
+              </li>
+              <li>
+                <button class="plan-btn" aria-expanded="false" aria-controls="p3"><span class="hand" aria-hidden="true">3</span><b>Medición en GA4</b><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button>
+                <div class="plan-body" id="p3"><div><p>La página de gracias cuenta compras repetidas.</p><p class="exp">Qué esperar: saber cuánto vendés de verdad antes de mover presupuesto.</p></div></div>
+              </li>
+              <li>
+                <button class="plan-btn" aria-expanded="false" aria-controls="p4"><span class="hand" aria-hidden="true">4</span><b>Campañas</b><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></button>
+                <div class="plan-body" id="p4"><div><p>Recién ahora: separar búsquedas de marca y genéricas.</p><p class="exp">Qué esperar: ver qué parte de la inversión trae clientes nuevos.</p></div></div>
+              </li>
+            </ol>
+          </div>
+          <figcaption>Así se ve el plan que te mando. Tocá cada punto para ver el detalle. (Ejemplo)</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec stone" id="que-reviso" aria-labelledby="h-reviso">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2" id="h-reviso">La mayoría de las auditorías terminan en el clic. Yo sigo hasta la venta.</h2>
+        <p class="lede">Compará qué mira un reporte de campañas y qué reviso yo. Tocá cada paso para ver qué miro ahí.</p>
+      </div>
+      <div class="funnel-ctrl">
+        <div class="seg" role="group" aria-label="Qué querés ver">
+          <button type="button" id="m-report" aria-pressed="false">Reporte de agencia</button>
+          <button type="button" id="m-audit" aria-pressed="true">Mi auditoría</button>
+        </div>
+        <p id="mode-note" aria-live="polite">Mi auditoría revisa los seis pasos.</p>
+        <p class="gap-note">Del paso 3 en adelante se suele perder la plata.</p>
+      </div>
+      <div class="funnel mode-audit" id="funnel" role="tablist" aria-label="Pasos del anuncio a la venta">
+        <span class="f-gap" aria-hidden="true"><span>Acá se suele perder la plata</span></span>
+      </div>
+      <div class="f-detail" id="f-detail" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="casos" aria-labelledby="h-casos">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2" id="h-casos">Dos cuentas que gestioné, con los números de cada negocio.</h2>
+        <div class="tabs"><div class="seg" role="tablist" aria-label="Casos">
+          <button type="button" role="tab" id="t-alf" aria-selected="true" aria-controls="c-alf">La Alfombrería</button>
+          <button type="button" role="tab" id="t-pic" aria-selected="false" aria-controls="c-pic" tabindex="-1">Piccadely</button>
+        </div></div>
+      </div>
+      <article class="case" id="c-alf" role="tabpanel" aria-labelledby="t-alf">
+        <div><span class="case-num barred hand">x2,1</span><p class="case-num-cap">La facturación mensual pasó de 10M a 21M CLP.</p></div>
+        <div>
+          <h3>La Alfombrería</h3>
+          <p class="meta">E-commerce · Chile · últimos 6 meses vs. el mismo período del año anterior</p>
+          <p class="what">Reestructuré la cuenta, mejoré el SEO de los productos, probé contenido y una propuesta comercial nueva, y sumé un agente de IA por WhatsApp para las alfombras más caras, donde decidir cuesta más.</p>
+          <dl>
+            <div><dt>Compradores nuevos</dt><dd>+40%</dd></div>
+            <div><dt>ROAS</dt><dd>15</dd></div>
+            <div><dt>Período</dt><dd>6 meses</dd></div>
+          </dl>
+        </div>
+      </article>
+      <article class="case" id="c-pic" role="tabpanel" aria-labelledby="t-pic" hidden>
+        <div><span class="case-num hand">+60%</span><p class="case-num-cap">Más compras y más valor de compras, con la misma inversión.</p></div>
+        <div>
+          <h3>Piccadely</h3>
+          <p class="meta">E-commerce · Argentina · un mes sin fechas especiales vs. el mismo mes del año anterior</p>
+          <p class="what">Encontré dónde se perdía plata en Google Ads, mejoré la web y armé una oferta comercial pensada para su público.</p>
+          <dl>
+            <div><dt>Compras</dt><dd>+60%</dd></div>
+            <div><dt>Valor de compras</dt><dd>+60%</dd></div>
+            <div><dt>Inversión</dt><dd>La misma</dd></div>
+          </dl>
+        </div>
+      </article>
+      <p class="cases-note">Fueron cuentas que gestioné durante meses, no auditorías sueltas. Los números los reportó cada negocio.</p>
+    </div>
+  </section>
+
+  <section class="sec stone" id="auditoria" aria-labelledby="h-auditoria">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h2" id="h-auditoria">Una auditoría, un <span class="hl">plan</span>.</h2></div>
+      <div class="offer">
+        <div class="price">
+          <span class="from">Auditoría 1:1, desde</span>
+          <span class="amount"><small>USD</small>80</span>
+          <p>Una videollamada de 30 minutos y el plan por escrito en 48 h. 100% online.</p>
+          <a class="btn btn-primary" href="#contacto">Pedir auditoría</a>
+        </div>
+        <div>
+          <ol class="timeline">
+            <li><span class="when">Antes</span><div><h3>Me das acceso y me contás</h3><p>Me das acceso de lectura a tus cuentas y a GA4, y me contás tu negocio en un formulario corto. Reviso todo antes de la llamada.</p></div></li>
+            <li><span class="when">Día 1</span><div><h3>La sesión</h3><p>Videollamada de 30 minutos. Te muestro lo que encontré en tus cuentas y lo charlamos.</p></div></li>
+            <li><span class="when">48 h</span><div><h3>El plan por escrito</h3><p>Qué cambiar, en qué orden y qué esperar de cada cambio.</p></div></li>
+          </ol>
+          <div class="guarantee"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg><p>Si no salís con un plan claro, la segunda sesión no se cobra.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sobre-mi" aria-labelledby="h-sobre">
+    <div class="wrap about">
+      <figure class="about-photo">
+        <img src="./lucia-560.jpg" alt="Lucía, de frente, sonriendo" width="560" height="700" loading="lazy">
+        <figcaption>Lucía · Buenos Aires</figcaption>
+      </figure>
+      <div class="about-body">
+        <h2 class="h2" id="h-sobre">Soy Lucía.</h2>
+        <p class="lede">Trabajo en paid media hace más de 5 años. Manejé cuentas de marcas grandes desde agencia y de negocios chicos que invertían su propia plata, en distintos países de LATAM.</p>
+        <p class="tools">Desde agencia manejé cuentas de <b>Google, Movistar, Sodimac, BBVA, Hilton, Samsung y AutoCity</b>. Trabajo con Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, GA4, DV360 y SA360.</p>
+        <div class="quotes">
+          <figure>
+            <blockquote>"Posee un manejo técnico de Google Ads que pocos tienen, pero su verdadera fortaleza es la comunicación."</blockquote>
+            <figcaption>Matías Viera · Country Manager Uruguay, Growth Digital · trabajamos juntos en agencia</figcaption>
+          </figure>
+          <figure>
+            <blockquote>"Puedo delegar con confianza, sabiendo que hay criterio y mirada estratégica detrás de cada decisión."</blockquote>
+            <figcaption>Belén La Banca · Media Planner Sr, Off-On · trabajamos juntas en agencia</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec stone" id="para-quien" aria-labelledby="h-fit">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h2" id="h-fit">¿La auditoría es para vos?</h2>
+        <p class="lede">Cuatro preguntas. Te digo la verdad aunque la respuesta sea que no.</p>
+      </div>
+      <div class="quiz">
+        <ol class="q-list" id="quiz">
+          <li data-want="si"><p>¿Ya invertís en pauta y querés entender por qué no rinde?</p><div class="yn" role="group" aria-label="Respuesta"><button type="button" aria-pressed="false" data-v="si">Sí</button><button type="button" aria-pressed="false" data-v="no">No</button></div></li>
+          <li data-want="si"><p>¿Podés darme acceso de lectura a tus cuentas?</p><div class="yn" role="group" aria-label="Respuesta"><button type="button" aria-pressed="false" data-v="si">Sí</button><button type="button" aria-pressed="false" data-v="no">No</button></div></li>
+          <li data-want="si"><p>¿Estás dispuesto a revisar la landing y el proceso de venta, no solo los anuncios?</p><div class="yn" role="group" aria-label="Respuesta"><button type="button" aria-pressed="false" data-v="si">Sí</button><button type="button" aria-pressed="false" data-v="no">No</button></div></li>
+          <li data-want="no"><p>¿Buscás que alguien gestione tus campañas día a día?</p><div class="yn" role="group" aria-label="Respuesta"><button type="button" aria-pressed="false" data-v="si">Sí</button><button type="button" aria-pressed="false" data-v="no">No</button></div></li>
+        </ol>
+        <div class="q-result" id="q-result" aria-live="polite">
+          <div class="meter" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <h3 id="q-title">Respondé las cuatro.</h3>
+          <p id="q-text">Con eso te digo si la auditoría te sirve o si te conviene otra cosa.</p>
+          <a class="btn btn-primary" id="q-cta" href="#contacto" hidden>Pedir auditoría</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="preguntas" aria-labelledby="h-faq">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h2" id="h-faq">Lo que me preguntan antes de arrancar.</h2></div>
+      <div class="faq">
+        <div><h3>¿Necesito darte acceso a mis cuentas?</h3><p>Sí, acceso de lectura a las cuentas publicitarias y a GA4. No necesito permisos de edición.</p></div>
+        <div><h3>¿Vos implementás los cambios?</h3><p>La auditoría es para que tengas claro qué hacer y en qué orden. Lo implementa tu equipo o tu agencia; si necesitás acompañamiento después, lo armo aparte.</p></div>
+        <div><h3>¿Sirve si soy analista o freelancer?</h3><p>Sí. Muchas consultas son de gente de agencia con una cuenta trabada que necesita una segunda mirada.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark close" id="contacto" aria-labelledby="h-contacto">
+    <div class="wrap">
+      <div>
+        <img class="logo-dark" src="./keyframe-logo-blanco.svg" alt="Keyframe" width="129" height="44">
+        <h2 class="h2" id="h-contacto">Contame qué está pasando con tu <span class="ul">pauta</span>.</h2>
+        <div class="recap">
+          <p><b>Desde USD 80.</b> 30 minutos de videollamada y el plan por escrito en 48 h.</p>
+          <p>Si no salís con un plan claro, la segunda sesión no se cobra.</p>
+          <p>Te respondo en menos de 48 h. ¿Preferís WhatsApp? <a href="https://wa.me/5491123439712?text=Hola%20Lu%2C%20quiero%20consultarte%20por%20una%20auditor%C3%ADa" target="_blank" rel="noopener">Escribime por acá</a>.</p>
+        </div>
+      </div>
+      <div id="form-slot">
+        <form id="form" novalidate>
+          <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required><span class="err" id="e-nombre">Poné tu nombre así sé cómo llamarte.</span></div>
+          <div class="field"><label for="f-contacto">WhatsApp o email</label><span class="hint" id="h-contacto-hint">Con código de país, por ejemplo +54 9 11 2345 6789, o tu email.</span><input id="f-contacto" name="contacto" autocomplete="email" aria-describedby="h-contacto-hint" required><span class="err" id="e-contacto">Revisá el dato: necesito un WhatsApp con código de país o un email válido.</span></div>
+          <div class="field"><label for="f-perfil">Sos…</label><select id="f-perfil" name="perfil" required><option value="">Elegí una opción</option><option>Dueño o dueña de un negocio</option><option>Analista de agencia</option><option>Freelancer</option><option>Otro</option></select><span class="err" id="e-perfil">Elegí la opción que más se parezca a tu caso.</span></div>
+          <div class="field"><label for="f-problema">¿Qué está pasando? <span class="small">(opcional)</span></label><textarea id="f-problema" name="problema" placeholder="Ej: invierto en Meta hace 3 meses, me llegan leads pero no compran."></textarea></div>
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit" id="f-submit">Pedir auditoría</button>
+            <p class="small">Sin compromiso. Tus datos solo se usan para responderte. <a href="https://keyframelatam.com/privacidad" target="_blank" rel="noopener">Política de privacidad</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="dark foot">
+  <div class="wrap">
+    <span>© 2026 Keyframe · Auditorías de pauta para LATAM</span>
+    <nav aria-label="Redes"><a href="https://www.linkedin.com/company/keyframe-ar" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/keyframe.ar" target="_blank" rel="noopener">Instagram</a><a href="#contacto">Contacto</a></nav>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <a class="btn btn-primary" href="#contacto" tabindex="-1">Pedir auditoría</a>
+  <a class="btn btn-ghost" href="https://wa.me/5491123439712?text=Hola%20Lu%2C%20quiero%20consultarte%20por%20una%20auditor%C3%ADa" target="_blank" rel="noopener" tabindex="-1">WhatsApp</a>
+</div>
+
+
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var mb=$('menu-btn'), nav=$('nav');
+  function closeNav(){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='Menú';}
+  mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.textContent=o?'Cerrar':'Menú';});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')closeNav();});
+  document.querySelectorAll('.plan-btn').forEach(function(b){
+    b.addEventListener('click',function(){var li=b.closest('li');var o=!li.classList.contains('open');li.classList.toggle('open',o);b.setAttribute('aria-expanded',o);});
+  });
+  var steps=[
+    {t:'Anuncio',s:'Creativo, mensaje y audiencia',r:true,c:['Si el mensaje le habla a quien compra, no a cualquiera','Qué creativos traen ventas y no solo clics','Si la audiencia está bien armada o es demasiado amplia']},
+    {t:'Clic',s:'CTR, CPC, términos de búsqueda',r:true,c:['Términos de búsqueda que gastan sin vender','Si el costo por clic está inflado por la configuración','Ubicaciones y redes que suman clics de baja calidad']},
+    {t:'Landing',s:'Mensaje, velocidad, formulario',r:false,c:['Si la página continúa lo que prometió el anuncio','Cuánto tarda en cargar en el celular','Cuántos datos pide el formulario y cuáles sobran']},
+    {t:'Lead',s:'Calidad y medición real',r:false,c:['Si los leads que llegan pueden comprar','Si GA4 y las plataformas cuentan bien las conversiones','Qué campañas traen leads buenos y cuáles no']},
+    {t:'Respuesta',s:'Cuánto tardan y cómo contestan',r:false,c:['Cuánto tarda tu equipo en contestar','Qué se le dice al lead en el primer mensaje','Qué pasa con los leads que no responden']},
+    {t:'Venta',s:'Lo único que importa',r:false,c:['Cuántos leads terminan en venta','Cuánto te cuesta cada venta, no cada clic','Qué cambiar primero para vender más con la misma inversión']}
+  ];
+  var funnel=$('funnel'), detail=$('f-detail'), mode='audit', sel=2;
+  steps.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.type='button';b.className='f-step'+(i>1?' after':'');b.setAttribute('role','tab');b.id='fs'+i;b.setAttribute('aria-controls','f-detail');
+    b.innerHTML='<span class="hand" aria-hidden="true">'+(i+1)+'</span><b>'+s.t+'</b><small>'+s.s+'</small>'+
+      '<span class="f-state st-yes"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Lo reviso</span>'+
+      '<span class="f-state st-no"><svg class="ico" aria-hidden="true"><use href="#i-minus"/></svg>No lo mira</span>';
+    b.addEventListener('click',function(){select(i);});
+    b.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowRight'||k==='ArrowDown')n=(i+1)%6;if(k==='ArrowLeft'||k==='ArrowUp')n=(i+5)%6;if(n!==null){e.preventDefault();select(n);$('fs'+n).focus();}});
+    funnel.appendChild(b);
+  });
+  function render(){
+    var s=steps[sel], seen=(mode==='audit')||s.r;
+    detail.setAttribute('aria-labelledby','fs'+sel);
+    detail.innerHTML='<div><h3>'+(sel+1)+'. '+s.t+'</h3><p class="who-sees">'+(mode==='report'?(s.r?'El reporte de tu agencia lo muestra.':'El reporte de tu agencia no llega hasta acá.'):'Lo reviso en la auditoría.')+'</p></div>'+
+      '<ul>'+s.c.map(function(x){return '<li><svg class="ico" aria-hidden="true"><use href="#'+(seen?'i-check':'i-minus')+'"/></svg><span>'+x+'</span></li>';}).join('')+'</ul>';
+    detail.style.opacity=seen?'1':'.55';
+  }
+  function select(i){
+    sel=i;
+    for(var k=0;k<6;k++){var el=$('fs'+k);el.setAttribute('aria-selected',k===i);el.tabIndex=(k===i)?0:-1;}
+    render();
+  }
+  function setMode(m){
+    mode=m;funnel.classList.toggle('mode-report',m==='report');funnel.classList.toggle('mode-audit',m==='audit');
+    $('m-report').setAttribute('aria-pressed',m==='report');$('m-audit').setAttribute('aria-pressed',m==='audit');
+    $('mode-note').textContent=m==='report'?'Un reporte de campañas mira 2 de 6 pasos.':'Mi auditoría revisa los seis pasos.';
+    render();
+  }
+  $('m-report').addEventListener('click',function(){setMode('report');});
+  $('m-audit').addEventListener('click',function(){setMode('audit');});
+  select(2);
+  var tabs=[['t-alf','c-alf'],['t-pic','c-pic']];
+  function showTab(idx,focus){tabs.forEach(function(t,i){var on=i===idx;$(t[0]).setAttribute('aria-selected',on);$(t[0]).tabIndex=on?0:-1;$(t[1]).hidden=!on;});if(focus)$(tabs[idx][0]).focus();}
+  tabs.forEach(function(t,i){
+    $(t[0]).addEventListener('click',function(){showTab(i);});
+    $(t[0]).addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();showTab(i===0?1:0,true);}});
+  });
+  var qs=document.querySelectorAll('#quiz li');
+  function quiz(){
+    var answered=0, fit=0, blocker=null;
+    qs.forEach(function(li,i){var p=li.querySelector('[aria-pressed="true"]');if(p){answered++;if(p.dataset.v===li.dataset.want)fit++;else if(blocker===null)blocker=i;}});
+    document.querySelectorAll('.q-result .meter i').forEach(function(m,i){m.classList.toggle('on',i<answered);});
+    var t=$('q-title'),x=$('q-text'),c=$('q-cta');
+    if(answered<4){t.textContent=answered?('Vas '+answered+' de 4.'):'Respondé las cuatro.';x.textContent='Con eso te digo si la auditoría te sirve o si te conviene otra cosa.';c.hidden=true;return;}
+    if(fit===4){t.textContent='Te sirve.';x.textContent='Es justo el caso para el que armé la auditoría. Contame qué está pasando y te respondo en menos de 48 h.';c.hidden=false;return;}
+    var msgs=[
+      'Si todavía no invertís en pauta, la auditoría no tiene qué revisar. Escribime cuando tengas campañas andando.',
+      'Sin acceso de lectura no puedo revisar tus cuentas. No necesito permisos de edición: si eso te frena, preguntame.',
+      'Muchas veces el problema está en la landing o en cómo se responde. Si eso queda afuera, la auditoría pierde la mitad del valor.',
+      'Para gestión diaria de campañas te conviene una agencia. La auditoría te da un plan para que lo implemente tu equipo.'
+    ];
+    t.textContent=fit===3?'Puede servirte, con un ojo en esto.':'Probablemente no sea para vos.';
+    x.textContent=msgs[blocker];
+    c.hidden=fit<3; c.textContent=fit===3?'Consultarme igual':'Pedir auditoría';
+  }
+  qs.forEach(function(li){li.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){li.querySelectorAll('button').forEach(function(o){o.setAttribute('aria-pressed',o===b);});quiz();});});});
+  var sticky=$('sticky'), pastHero=false, inContact=false;
+  function upd(){var on=pastHero&&!inContact;sticky.classList.toggle('on',on);sticky.setAttribute('aria-hidden',!on);sticky.querySelectorAll('a').forEach(function(a){a.tabIndex=on?0:-1;});}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){pastHero=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;upd();}).observe($('hero-ctas'));
+    new IntersectionObserver(function(es){inContact=es[0].isIntersecting;upd();},{threshold:.15}).observe($('contacto'));
+  }
+  function setErr(id,bad){var inp=$(id),f=inp.closest('.field');var base=id==='f-contacto'?'h-contacto-hint':'';if(bad){f.setAttribute('data-error','');inp.setAttribute('aria-invalid','true');inp.setAttribute('aria-describedby',(base?base+' ':'')+'e-'+id.slice(2));}else{f.removeAttribute('data-error');inp.removeAttribute('aria-invalid');if(base)inp.setAttribute('aria-describedby',base);else inp.removeAttribute('aria-describedby');}return bad;}
+  function contactoOk(v){v=v.trim();if(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v))return true;var d=v.replace(/[^\d]/g,'');return /^\+?[\d\s().-]+$/.test(v)&&d.length>=10;}
+  ['f-nombre','f-contacto','f-perfil'].forEach(function(id){$(id).addEventListener('input',function(){if(this.closest('.field').hasAttribute('data-error'))setErr(id,id==='f-contacto'?!contactoOk(this.value):!this.value.trim());});});
+  $('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var b1=setErr('f-nombre',!$('f-nombre').value.trim()), b2=setErr('f-contacto',!contactoOk($('f-contacto').value)), b3=setErr('f-perfil',!$('f-perfil').value);
+    var first=b1?'f-nombre':b2?'f-contacto':b3?'f-perfil':null;
+    if(first){$(first).focus();return;}
+    var btn=$('f-submit');btn.disabled=true;btn.textContent='Enviando…';
+    setTimeout(function(){
+      var name=$('f-nombre').value.trim().split(' ')[0].replace(/[<>&"]/g,'');
+      $('form-slot').innerHTML='<div class="done" role="status" tabindex="-1" id="done"><h3>Listo, '+name+'.</h3><p>Te respondo en menos de 48 h con los próximos pasos.</p></div>';
+      $('done').focus();
+    },700);
+  });
+})();
+</script>
