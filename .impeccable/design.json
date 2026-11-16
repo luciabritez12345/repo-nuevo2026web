@@ -1,0 +1,479 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-16T02:30:07+00:00",
+  "title": "Design System: Propuestas Keyframe",
+  "extensions": {
+    "colorMeta": {
+      "lima": {
+        "role": "primary",
+        "displayName": "Lima Resaltador",
+        "canonical": "oklch(94.1% 0.207 121)",
+        "tonalRamp": [
+          "#070F00",
+          "#1E2D00",
+          "#394F00",
+          "#587300",
+          "#7A9800",
+          "#A1BC3A",
+          "#C8DB91",
+          "#EAF3D6"
+        ]
+      },
+      "lima-hondo": {
+        "role": "primary",
+        "displayName": "Lima Hondo",
+        "canonical": "oklch(88.3% 0.207 121)",
+        "tonalRamp": [
+          "#060F00",
+          "#1D2E00",
+          "#375000",
+          "#567400",
+          "#789800",
+          "#9FBC3C",
+          "#C6DC91",
+          "#EAF3D6"
+        ]
+      },
+      "tinta": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "oklch(17.8% 0 0)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#AEAEAE",
+          "#D1D1D1",
+          "#EEEEEE"
+        ]
+      },
+      "texto": {
+        "role": "neutral",
+        "displayName": "Texto Grafito",
+        "canonical": "oklch(28.5% 0 0)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#AEAEAE",
+          "#D1D1D1",
+          "#EEEEEE"
+        ]
+      },
+      "gris": {
+        "role": "neutral",
+        "displayName": "Gris Nota",
+        "canonical": "oklch(52.8% 0 0)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#AEAEAE",
+          "#D1D1D1",
+          "#EEEEEE"
+        ]
+      },
+      "gris-suave": {
+        "role": "neutral",
+        "displayName": "Gris Raya",
+        "canonical": "oklch(63.2% 0.006 107)",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#272724",
+          "#454542",
+          "#666662",
+          "#898986",
+          "#AEAEAB",
+          "#D1D1CF",
+          "#EEEEEE"
+        ]
+      },
+      "blanco": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#AEAEAE",
+          "#D1D1D1",
+          "#EEEEEE"
+        ]
+      },
+      "banda": {
+        "role": "neutral",
+        "displayName": "Banda",
+        "canonical": "oklch(96.7% 0.003 106)",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#272724",
+          "#454542",
+          "#666662",
+          "#898986",
+          "#AEAEAB",
+          "#D1D1CF",
+          "#EEEEEE"
+        ]
+      },
+      "regla": {
+        "role": "neutral",
+        "displayName": "Regla",
+        "canonical": "oklch(91.8% 0.004 106)",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#272724",
+          "#454542",
+          "#666662",
+          "#898986",
+          "#AEAEAB",
+          "#D1D1CF",
+          "#EEEEEE"
+        ]
+      },
+      "tinta-hover": {
+        "role": "neutral",
+        "displayName": "Tinta Hover",
+        "canonical": "oklch(29.1% 0 0)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#AEAEAE",
+          "#D1D1D1",
+          "#EEEEEE"
+        ]
+      },
+      "cierre-texto": {
+        "role": "neutral",
+        "displayName": "Cierre Texto",
+        "canonical": "oklch(91.9% 0.004 106)",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#272724",
+          "#454542",
+          "#666662",
+          "#898986",
+          "#AEAEAB",
+          "#D1D1CF",
+          "#EEEEEE"
+        ]
+      },
+      "cierre-apagado": {
+        "role": "neutral",
+        "displayName": "Cierre Apagado",
+        "canonical": "oklch(68.4% 0.006 107)",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#272724",
+          "#454542",
+          "#666662",
+          "#898986",
+          "#AEAEAB",
+          "#D1D1CF",
+          "#EEEEEE"
+        ]
+      },
+      "cierre-regla": {
+        "role": "neutral",
+        "displayName": "Cierre Regla",
+        "canonical": "oklch(32.1% 0 0)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#AEAEAE",
+          "#D1D1D1",
+          "#EEEEEE"
+        ]
+      },
+      "foco": {
+        "role": "accessibility",
+        "displayName": "Foco",
+        "canonical": "oklch(53.8% 0.172 276)",
+        "tonalRamp": [
+          "#06012F",
+          "#1B1466",
+          "#333299",
+          "#5055C6",
+          "#717CE8",
+          "#98A6FF",
+          "#C2CDFF",
+          "#E8EDFF"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titular de portada, máximo 15ch, con una palabra en lima."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Titular de sección, máximo 20ch; en el cierre sube a clamp(36px, 5.2vw, 68px)."
+      },
+      "title-paso": {
+        "displayName": "Title paso",
+        "purpose": "Encabezado de cada paso del embudo y de condiciones comerciales."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Subtítulos de bloque; fases del calendario a 24px/900."
+      },
+      "cifra": {
+        "displayName": "Cifra",
+        "purpose": "Monto de honorarios en el bloque de precio."
+      },
+      "cifra-media": {
+        "displayName": "Cifra media",
+        "purpose": "Resultados del simulador de pauta."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Bajada bajo cada titular, máximo 60ch, datos en negrita tinta."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Lectura general; 17px en celular."
+      },
+      "body-sm": {
+        "displayName": "Body chico",
+        "purpose": "Celdas, condiciones, notas aparte."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Rótulos de columna, fuentes de datos, para quién es."
+      },
+      "tag": {
+        "displayName": "Tag",
+        "purpose": "Etiquetas de rol en pastilla."
+      }
+    },
+    "shadows": [
+      {
+        "name": "riel-activo",
+        "value": "inset 0 -2px 0 #111111",
+        "purpose": "Subrayado del paso activo en el riel; funciona como regla, no como elevación. El sistema no tiene sombras de elevación."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-salida",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Salida exponencial para toda transición de estado."
+      },
+      {
+        "name": "estado",
+        "value": "0.2s",
+        "purpose": "Color y fondo de botones y del riel."
+      },
+      {
+        "name": "opcion",
+        "value": "0.25s",
+        "purpose": "Fondo de las opciones del selector."
+      },
+      {
+        "name": "cifra",
+        "value": "opacity + translateY(6px), 0.35s",
+        "purpose": "Cambio de cifras del simulador; la única animación del sistema. Se anula con prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sin-riel",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "tabla-fichas",
+        "value": "640px"
+      },
+      {
+        "name": "celular",
+        "value": "560px"
+      }
+    ],
+    "surfaces": [
+      {
+        "name": "barra",
+        "value": "rgba(255,255,255,.94) + backdrop-filter: saturate(1.4) blur(10px)",
+        "purpose": "Barra superior pegada."
+      },
+      {
+        "name": "foco",
+        "value": "outline: 2px solid #575ECF; outline-offset: 2px; border-radius: 4px",
+        "purpose": "Anillo de foco de todo lo interactivo."
+      },
+      {
+        "name": "mark",
+        "value": "linear-gradient(transparent 58%, #D9FF3F 58%)",
+        "purpose": "Resaltador de la palabra clave sobre fondo claro; en el cierre, fondo lima pleno."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón oscuro",
+      "kind": "button",
+      "refersTo": "button-oscuro",
+      "description": "Acción principal: coordinar la llamada, ver el plan.",
+      "html": "<a class=\"ds-btn ds-btn-oscuro\" href=\"#\">Coordinar la llamada</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:700;font-size:16px;line-height:1;padding:15px 22px;border-radius:6px;border:2px solid #111111;text-decoration:none;cursor:pointer;transition:background-color .2s cubic-bezier(.16,1,.3,1),color .2s cubic-bezier(.16,1,.3,1)} .ds-btn-oscuro{background:#111111;color:#FFFFFF} .ds-btn-oscuro:hover{background:#2C2C2C;border-color:#2C2C2C} .ds-btn:focus-visible{outline:2px solid #575ECF;outline-offset:2px;border-radius:4px}"
+    },
+    {
+      "name": "Botón línea",
+      "kind": "button",
+      "refersTo": "button-linea",
+      "description": "Acción secundaria; se invierte a tinta en hover.",
+      "html": "<a class=\"ds-btn-linea\" href=\"#\">Inversión: USD 600 por mes</a>",
+      "css": ".ds-btn-linea{display:inline-flex;align-items:center;gap:10px;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:700;font-size:16px;line-height:1;padding:15px 22px;border-radius:6px;border:2px solid #111111;background:transparent;color:#111111;text-decoration:none;cursor:pointer;transition:background-color .2s cubic-bezier(.16,1,.3,1),color .2s cubic-bezier(.16,1,.3,1)} .ds-btn-linea:hover{background:#111111;color:#FFFFFF} .ds-btn-linea:focus-visible{outline:2px solid #575ECF;outline-offset:2px;}"
+    },
+    {
+      "name": "Barra superior",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Barra pegada con logo, para quién es y la acción principal.",
+      "html": "<header class=\"ds-top\"><span class=\"ds-logo\">Keyframe</span><p class=\"ds-para\">Propuesta para <b>Nombre del cliente</b><br>13 de noviembre de 2026</p><a class=\"ds-btn-chico\" href=\"#\">Coordinar la llamada</a></header>",
+      "css": ".ds-top{display:flex;align-items:center;gap:20px;min-height:64px;padding:0 24px;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid #E4E4E1;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;} .ds-logo{font-weight:800;font-size:20px;color:#111111;background:#D9FF3F;padding:0 6px;border-radius:4px;transform:rotate(-2deg)} .ds-para{margin:0 auto 0 0;padding-left:20px;border-left:1px solid #E4E4E1;font-size:14.5px;line-height:1.3;color:#6B6B6B} .ds-para b{color:#111111;font-weight:600} .ds-btn-chico{display:inline-flex;font-weight:600;font-size:14.5px;line-height:1;padding:11px 16px;border-radius:6px;border:2px solid #111111;background:#111111;color:#FFFFFF;text-decoration:none;transition:background-color .2s cubic-bezier(.16,1,.3,1)} .ds-btn-chico:hover{background:#2C2C2C;border-color:#2C2C2C} .ds-btn-chico:focus-visible{outline:2px solid #575ECF;outline-offset:2px;}"
+    },
+    {
+      "name": "Etiquetas de rol",
+      "kind": "chip",
+      "refersTo": "tag-rol",
+      "description": "Pastillas de rol en los ítems del plan; variante luego en gris.",
+      "html": "<span class=\"ds-rol\">Canal principal</span> <span class=\"ds-rol ds-rol-luego\">Más adelante</span> <span class=\"ds-sugerido\">Sugerido</span>",
+      "css": ".ds-rol{display:inline-block;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:12.5px;font-weight:700;color:#111111;border:1px solid #111111;border-radius:999px;padding:2px 9px;white-space:nowrap} .ds-rol-luego{color:#6B6B6B;border-color:#E4E4E1} .ds-sugerido{display:inline-block;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:12px;font-weight:700;background:#111111;color:#FFFFFF;border-radius:3px;padding:2px 7px}"
+    },
+    {
+      "name": "Tira del embudo",
+      "kind": "custom",
+      "refersTo": "paso-venta",
+      "description": "Primera vista: seis pasos bajo regla de 2px; el paso de venta en negro con la cifra en lima.",
+      "html": "<ol class=\"ds-tira\"><li><span class=\"ds-paso\"><i>1</i>Anuncio</span><p>La inversión no alcanzaba.</p></li><li><span class=\"ds-paso\"><i>3</i>Landing</span><p>No deja reservar.</p></li><li class=\"ds-venta\"><span class=\"ds-paso\"><i>6</i>Venta</span><b>0</b><p>pacientes nuevos en 3 meses</p></li></ol>",
+      "css": ".ds-tira{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid #111111;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;} .ds-tira li{padding:20px 18px 26px;display:flex;flex-direction:column;gap:10px;border-right:1px solid #E4E4E1;cursor:pointer} .ds-tira li:last-child{border-right:0} .ds-paso{display:flex;align-items:baseline;gap:8px;font-weight:800;font-size:17px;color:#111111;letter-spacing:-.01em} .ds-paso i{font-style:normal;font-variant-numeric:tabular-nums;color:#6B6B6B;font-weight:600;font-size:14px} .ds-tira li:hover .ds-paso{text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px} .ds-tira p{margin:0;font-size:15px;line-height:1.45;color:#6B6B6B} .ds-venta{background:#111111} .ds-venta .ds-paso{color:#FFFFFF} .ds-venta .ds-paso i{color:#A9A9A4} .ds-venta b{font-weight:900;font-size:44px;line-height:1;letter-spacing:-.04em;color:#D9FF3F} .ds-tira .ds-venta p{color:#D6D6D2}"
+    },
+    {
+      "name": "Fila Hoy / Con el plan",
+      "kind": "custom",
+      "refersTo": "marca-ok",
+      "description": "Un paso del embudo: raya gris para lo que falta, círculo lima con tilde para lo que resuelve el plan.",
+      "html": "<div class=\"ds-lados\"><div class=\"ds-hoy\"><div class=\"ds-item\"><span class=\"ds-no\"><svg viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M3 7h8\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg></span><div><h4>Faltó Google</h4><p>Quien busca ya decidió y ahí no estabas.</p></div></div></div><div class=\"ds-plan\"><div class=\"ds-item\"><span class=\"ds-ok\"><svg viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M2.5 7.4l2.9 2.9 6.1-6.6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><div><h4>Google Maps <span class=\"ds-rol2\">Canal principal</span></h4><p>Pasar de 15 a 50 reseñas.</p></div></div></div></div>",
+      "css": ".ds-lados{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:48px;padding:40px 0 44px;border-top:2px solid #111111;border-bottom:1px solid #E4E4E1;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;} .ds-item{display:flex;gap:14px;align-items:flex-start} .ds-item h4{margin:0 0 6px;font-size:17px;font-weight:700;color:#111111;line-height:1.35} .ds-item p{margin:0;font-size:16px;line-height:1.55;color:#2A2A2A} .ds-hoy h4{color:#2A2A2A} .ds-hoy p{color:#6B6B6B} .ds-ok,.ds-no{flex:none;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%} .ds-ok{background:#D9FF3F;color:#111111} .ds-no{color:#8A8A86} .ds-ok svg,.ds-no svg{width:14px;height:14px} .ds-rol2{display:inline-block;font-size:12.5px;font-weight:700;border:1px solid #111111;border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:2px}"
+    },
+    {
+      "name": "Selector de pauta",
+      "kind": "input",
+      "refersTo": null,
+      "description": "Opciones de radio a ancho completo; la elegida lleva marca lima con punto de tinta.",
+      "html": "<div class=\"ds-opciones\" role=\"radiogroup\"><button class=\"ds-opcion\" role=\"radio\" aria-checked=\"false\"><span><b>$300.000</b><small>por mes en Google</small></span><span class=\"ds-marca\"></span></button><button class=\"ds-opcion\" role=\"radio\" aria-checked=\"true\"><span><b>$600.000</b><small>por mes en Google</small></span><span class=\"ds-marca\"></span></button></div>",
+      "css": ".ds-opciones{display:flex;flex-direction:column;border-top:2px solid #111111;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;} .ds-opcion{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 16px 18px 14px;border-bottom:1px solid #E4E4E1;cursor:pointer;transition:background-color .25s cubic-bezier(.16,1,.3,1)} .ds-opcion b{font-weight:900;font-size:30px;letter-spacing:-.035em;color:#111111;line-height:1} .ds-opcion small{display:block;font-size:13.5px;color:#6B6B6B;margin-top:6px;font-weight:500} .ds-marca{width:22px;height:22px;border:2px solid #E4E4E1;border-radius:50%;flex:none;display:grid;place-items:center;box-sizing:border-box} .ds-opcion:hover{background:#F4F4F2} .ds-opcion:focus-visible{outline:2px solid #575ECF;outline-offset:-2px} .ds-opcion[aria-checked=\"true\"]{background:#FFFFFF} .ds-opcion[aria-checked=\"true\"] .ds-marca{border-color:#111111;background:#D9FF3F} .ds-opcion[aria-checked=\"true\"] .ds-marca::after{content:'';width:8px;height:8px;border-radius:50%;background:#111111}"
+    },
+    {
+      "name": "Etapa final del simulador",
+      "kind": "custom",
+      "refersTo": "etapa-final",
+      "description": "Resultado esperado en franja lima; las cifras cambian con una sola transición.",
+      "html": "<div class=\"ds-etapa\"><span>Evaluaciones</span><output>8</output></div><p class=\"ds-tasa\"><b>40%</b> llega a tratamiento</p><div class=\"ds-etapa ds-final\"><span>Pacientes nuevos</span><output>3</output></div>",
+      "css": ".ds-etapa{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 0;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;} .ds-etapa span{font-size:16px;font-weight:600;color:#2A2A2A} .ds-etapa output{font-weight:900;font-size:44px;letter-spacing:-.04em;color:#111111;line-height:1;transition:opacity .35s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1)} .ds-tasa{margin:0;display:flex;gap:10px;font-size:14px;color:#6B6B6B;padding:6px 0 6px 2px;border-top:1px solid #E4E4E1;border-bottom:1px solid #E4E4E1;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;} .ds-tasa b{color:#111111;font-weight:700} .ds-final{background:#D9FF3F;padding:20px 16px;border-radius:6px} .ds-final span{font-weight:800;color:#111111}"
+    },
+    {
+      "name": "Bloque de precio",
+      "kind": "card",
+      "refersTo": "precio",
+      "description": "La única caja del sistema: monto en cifra 900, lo que incluye y la garantía en lima.",
+      "html": "<div class=\"ds-precio\"><div class=\"ds-monto\"><p class=\"ds-cifra\">USD 600<small>por mes, honorarios Keyframe</small></p><p class=\"ds-nota\">La pauta se paga aparte, directo a cada plataforma.</p></div><ul class=\"ds-incluye\"><li><span class=\"ds-ok2\"><svg viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M2.5 7.4l2.9 2.9 6.1-6.6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>Gestión de Google Ads</li><li><span class=\"ds-ok2\"><svg viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M2.5 7.4l2.9 2.9 6.1-6.6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span>Ficha de Google Maps y plan de reseñas</li></ul><p class=\"ds-garantia\">Las cuentas, el dominio y la web quedan a tu nombre.</p></div>",
+      "css": ".ds-precio{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);border:2px solid #111111;border-radius:8px;overflow:hidden;background:#FFFFFF;font-family:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;} .ds-monto{padding:32px;display:flex;flex-direction:column;gap:14px;border-right:1px solid #E4E4E1} .ds-cifra{margin:0;font-weight:900;font-size:64px;line-height:.9;letter-spacing:-.04em;color:#111111} .ds-cifra small{display:block;font-size:20px;font-weight:600;letter-spacing:-.01em;color:#2A2A2A;margin-top:12px} .ds-nota{margin:0;font-size:15.5px;color:#6B6B6B} .ds-incluye{list-style:none;margin:0;padding:28px} .ds-incluye li{display:flex;gap:14px;align-items:flex-start;padding:11px 0;border-bottom:1px solid #E4E4E1;font-size:16.5px;line-height:1.45;color:#111111} .ds-incluye li:last-child{border-bottom:0} .ds-ok2{flex:none;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#D9FF3F;color:#111111} .ds-ok2 svg{width:12px;height:12px} .ds-garantia{grid-column:1/-1;margin:0;background:#D9FF3F;color:#111111;font-weight:700;padding:16px 28px;font-size:16px;border-top:2px solid #111111}"
+    }
+  ],
+  "narrative": {
+    "northStar": "El embudo hasta la venta",
+    "overview": "**Creative North Star: \"El embudo hasta la venta\"**\n\nLa propuesta no se arma como una pila de secciones de marketing; se arma como el embudo de Keyframe aplicado al caso del cliente: Anuncio → Clic → Landing → Lead → Respuesta → Venta. Cada bloque es una fila de un registro: una regla gruesa de tinta arriba, divisiones finas adentro, texto alineado a la izquierda y el dato en negrita. Se lee como un informe que una persona revisa sola en el celular, vuelve a abrir y compara, no como una landing que busca impresionar.\n\nEl mundo es blanco y tinta, con una sola tinta de acento: el lima. El lima no decora; marca lo que resuelve el plan y el resultado al que se llega (la tilde de \"Con el plan\", la etapa final del simulador, la fila del cliente en la tabla de competencia, la franja de garantía, la palabra clave del titular). Lo que falta hoy se marca con una raya gris, sin rojo ni alarma. La tipografía hace el trabajo de jerarquía: Schibsted Grotesk en 800–900 con tracking cerrado para titulares y cifras, 400 abierto para la lectura.\n\nLa densidad es de documento: una columna de 1180px, mucho aire vertical entre secciones, bandas grises alternas para separar capítulos y un cierre en negro con la firma. Sin sombras, sin tarjetas flotantes, sin animaciones de entrada; la única transición es el cambio de cifras en el simulador.",
+    "keyCharacteristics": [
+      "Blanco, tinta `#111111` y lima `#D9FF3F` como único acento.",
+      "Filas con regla de tinta de 2px arriba y divisiones de 1px en gris claro.",
+      "Columnas \"Hoy / Con el plan\" con raya gris contra círculo lima con tilde.",
+      "Titulares y cifras en Schibsted Grotesk 800–900, tracking negativo.",
+      "Bandas `#F4F4F2` alternas y cierre en negro.",
+      "Logo manuscrito \"Keyframe\" sobre una franja lima levemente inclinada.",
+      "Plano: sin sombras; profundidad por bandas y por el negro del cierre."
+    ],
+    "rules": [
+      {
+        "name": "The Lima Es Resultado Rule",
+        "body": "El lima marca solo lo que resuelve el plan, lo elegido o el resultado esperado. Nunca se usa como fondo de sección, ilustración ni borde decorativo, y como color de texto solo aparece sobre negro (la cifra del paso de venta).",
+        "section": "colors"
+      },
+      {
+        "name": "The Una Palabra Rule",
+        "body": "En cada titular se resalta en lima como máximo una palabra o frase corta: la que nombra el resultado (\"pacientes\", \"llamada de 30 minutos\"). Sobre blanco, como subrayado de marcador; sobre negro, como fondo pleno con texto en tinta.",
+        "section": "colors"
+      },
+      {
+        "name": "The Sin Alarma Rule",
+        "body": "Lo que falta hoy se dice con una raya gris y texto gris, nunca con rojo, ámbar ni íconos de error. La diferencia entre \"Hoy\" y \"Con el plan\" la hace el lima, no una señal de peligro.",
+        "section": "colors"
+      },
+      {
+        "name": "The Peso Manda Rule",
+        "body": "La jerarquía se arma con peso y tamaño de la misma familia. Titulares y cifras siempre en 800–900 con tracking negativo; la lectura siempre en 400 sin tracking. No se agrega una segunda familia de display.",
+        "section": "typography"
+      },
+      {
+        "name": "The Cifra Es Titular Rule",
+        "body": "Los números que importan (pacientes, monto, inversión) se componen en 900 al tamaño de un titular. Si un dato decide la compra, se ve antes que su explicación.",
+        "section": "typography"
+      },
+      {
+        "name": "The Regla Gruesa Rule",
+        "body": "Todo bloque de contenido (tira, filas, tabla, selector, resultado, fases, condiciones) abre con una regla de tinta de 2px; adentro, las divisiones son de 1px en `regla`. La regla gruesa reemplaza a la caja.",
+        "section": "layout"
+      },
+      {
+        "name": "The Fila No Tarjeta Rule",
+        "body": "Los grupos de items son columnas o filas separadas por reglas, no tarjetas con fondo, borde y sombra. La única caja con borde completo es el bloque de precio.",
+        "section": "layout"
+      },
+      {
+        "name": "The Plano Rule",
+        "body": "Ningún elemento lleva `box-shadow` para elevarse. El único `box-shadow` del sistema es el subrayado interior de 2px del paso activo en el riel, que funciona como regla, no como sombra.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** abrir cada bloque con una regla de tinta de 2px y dividir adentro con reglas de 1px en `#E4E4E1`.",
+      "**Do** marcar \"lo que falta\" con la raya gris y \"lo que resuelve el plan\" con el círculo lima con tilde, siempre en SVG.",
+      "**Do** resaltar en lima una sola palabra o frase por titular: la que nombra el resultado.",
+      "**Do** componer titulares y cifras en Schibsted Grotesk 800–900 con tracking entre -0.03em y -0.04em, y la lectura en 400.",
+      "**Do** alternar secciones blancas con bandas `#F4F4F2` y terminar siempre en el cierre negro con la firma.",
+      "**Do** citar la fuente y la fecha de revisión debajo de cada tabla o dato de terceros, en gris 14.5px.",
+      "**Do** dejar la columna \"Con el plan\" más ancha que la de \"Hoy\" (1.25fr contra 1fr).",
+      "**Do** mantener el lima solo para resultados, lo elegido y la garantía."
+    ],
+    "donts": [
+      "**Don't** usar sombras para elevar nada; el sistema es plano.",
+      "**Don't** armar la propuesta como pila genérica de secciones (hero, tarjetas de estadísticas, grilla de hallazgos, caja de precio suelta): el orden es el embudo.",
+      "**Don't** agrupar contenido en tarjetas con fondo y borde; la única caja con borde completo es el bloque de precio.",
+      "**Don't** usar rojo, ámbar o íconos de error para lo que falta hoy.",
+      "**Don't** usar el lima como fondo de sección, como decoración ni como color de texto sobre fondo claro.",
+      "**Don't** agregar rótulos chicos en mayúsculas sobre los titulares (kickers o eyebrows); el titular entra solo.",
+      "**Don't** agregar animaciones de entrada ni efectos al hacer scroll; la única transición es el cambio de cifras del simulador.",
+      "**Don't** usar la paleta ni las tipografías de la clínica en el marco de Keyframe, ni la marca Keyframe dentro de las maquetas del cliente.",
+      "**Don't** reemplazar las marcas SVG por caracteres (✓, ✗, —) ni por emojis."
+    ]
+  }
+}
