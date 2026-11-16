@@ -152,31 +152,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .f-detail li:first-child{border-top:1px solid var(--line)}
 .f-detail li .ico{width:20px;height:20px;margin-top:3px}
 
-/* Calculadora */
-.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(32px,6vw,88px);align-items:start}
-.calc-in{display:grid;gap:22px}
-.calc-in .field label{display:flex;justify-content:space-between;gap:12px}
-.calc-in .field output{font-weight:800;color:var(--on-ink)}
-.field{display:grid;gap:8px}
-.field label{font-weight:700;font-size:.9375rem}
-.num{display:flex;align-items:center;border:1.5px solid #4A4A48;border-radius:6px;background:var(--ink-2);transition:border-color .2s}
-.num:focus-within{border-color:var(--on-ink);box-shadow:0 0 0 3px rgba(255,255,255,.18)}
-.num span{padding-left:14px;color:var(--on-ink-muted);font-weight:600}
-.num input{flex:1;min-width:0;min-height:52px;padding:12px 14px;border:0;background:transparent;color:var(--on-ink);font:700 1.125rem/1 var(--f-text)}
-.num input:focus{outline:none}
-.calc-note{font-size:.875rem;color:var(--on-ink-muted)}
-.calc-out{display:grid;gap:0;border-top:2px solid var(--on-ink)}
-.out-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:baseline;padding-block:18px;border-bottom:1px solid var(--ink-line)}
-.out-row dt{font-size:1rem;color:var(--on-ink-muted)}
-.out-row dt small{display:block;font-size:.8125rem;margin-top:2px}
-.out-row dd{margin:0;font-weight:800;font-size:1.5rem;letter-spacing:-.02em}
-.out-row.big{padding-block:24px}
-.out-row.big dt{color:var(--on-ink);font-weight:700;font-size:1.125rem}
-.out-row.big dd{font-size:clamp(2.6rem,6vw,4rem);font-weight:900;letter-spacing:-.04em;line-height:1}
-.calc-say{margin-top:22px;font-size:1.0625rem;max-width:52ch}
-.calc-say b{font-weight:700}
-.calc-err{color:#FFB4A6;font-size:.9375rem;margin-top:12px}
-
 /* Casos en pestañas */
 .tabs{margin-bottom:36px}
 .case{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(28px,5vw,72px);align-items:start;border-top:2px solid var(--ink);padding-top:40px}
@@ -295,7 +270,7 @@ form{display:grid;gap:20px}
   .funnel-ctrl{margin-bottom:24px}
 }
 @media (max-width:960px){
-  .hero-row,.sec-head,.case,.offer,.about,.close .wrap,.calc,.quiz,.f-detail{grid-template-columns:minmax(0,1fr)}
+  .hero-row,.sec-head,.case,.offer,.about,.close .wrap,.quiz,.f-detail{grid-template-columns:minmax(0,1fr)}
   .price,.q-result{position:static}
   .faq{grid-template-columns:minmax(0,1fr)}
   .changes{grid-template-columns:minmax(0,1fr)}
@@ -343,7 +318,6 @@ form{display:grid;gap:20px}
     <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">Menú</button>
     <nav class="nav" id="nav" aria-label="Principal">
       <a href="#que-reviso">Qué reviso</a>
-      <a href="#calculadora">Calculadora</a>
       <a href="#casos">Casos</a>
       <a href="#auditoria">La auditoría</a>
       <a class="btn btn-primary" href="#contacto">Pedir auditoría</a>
@@ -413,32 +387,6 @@ form{display:grid;gap:20px}
         <span class="f-gap" aria-hidden="true"><span>Acá se suele perder la plata</span></span>
       </div>
       <div class="f-detail" id="f-detail" role="tabpanel" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <section class="sec dark" id="calculadora" aria-labelledby="h-calc">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2 class="h2" id="h-calc">Tu reporte te dice cuánto cuesta un lead. ¿Sabés cuánto te cuesta una <span class="ul">venta</span>?</h2>
-        <p class="lede">Poné tus números del último mes. No se guardan ni se envían.</p>
-      </div>
-      <div class="calc">
-        <div class="calc-in">
-          <div class="field"><label for="c-inv">Inversión en publicidad</label><div class="num"><span>$</span><input id="c-inv" type="number" inputmode="decimal" min="0" step="any" value="1000"></div></div>
-          <div class="field"><label for="c-leads">Leads o consultas que llegaron</label><div class="num"><input id="c-leads" type="number" inputmode="numeric" min="0" step="1" value="80"></div></div>
-          <div class="field"><label for="c-ventas">Ventas que salieron de esos leads</label><div class="num"><input id="c-ventas" type="number" inputmode="numeric" min="0" step="1" value="6"></div></div>
-          <p class="calc-note">Los valores de ejemplo son inventados. Usá la moneda que quieras: el cálculo es el mismo.</p>
-        </div>
-        <div>
-          <dl class="calc-out">
-            <div class="out-row"><dt>Costo por lead<small>Lo que suele mostrar el reporte</small></dt><dd id="o-cpl">$12,50</dd></div>
-            <div class="out-row"><dt>Leads que terminan en venta</dt><dd id="o-rate">7,5%</dd></div>
-            <div class="out-row big"><dt>Costo por venta</dt><dd id="o-cpv">$166,67</dd></div>
-          </dl>
-          <p class="calc-say" id="o-say"></p>
-          <p class="calc-err" id="o-err" hidden></p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -610,7 +558,6 @@ form{display:grid;gap:20px}
       <div><b>Trazos a mano</b><span>Fuera los tildes, cruces, flecha y subrayado dibujados. Quedan íconos limpios de trazo parejo. Los números con marcador siguen, como pide el manual.</span></div>
       <div><b>Hero</b><span>El titular ocupa todo el ancho y abajo van el texto y el plan. El plan se despliega punto por punto.</span></div>
       <div><b>Embudo</b><span>Un selector compara "Reporte de tu agencia" y "Mi auditoría": con el reporte, los pasos 3 a 6 se apagan. Cada paso muestra qué reviso ahí.</span></div>
-      <div><b>Calculadora</b><span>Nueva banda negra: con inversión, leads y ventas calcula el costo por venta. Es la idea de la marca hecha herramienta.</span></div>
       <div><b>Casos</b><span>En pestañas, para que no se haga largo. Cada uno con su número grande y tres datos.</span></div>
       <div><b>Para quién es</b><span>La lista pasa a ser un test de cuatro preguntas con una respuesta honesta, también cuando no encaja.</span></div>
       <div><b>Garantía</b><span>En un recuadro propio con ícono, al lado de los pasos, y repetida junto al formulario.</span></div>
@@ -675,26 +622,6 @@ form{display:grid;gap:20px}
   $('m-report').addEventListener('click',function(){setMode('report');});
   $('m-audit').addEventListener('click',function(){setMode('audit');});
   select(2);
-
-  // Calculadora
-  var fmt=function(n,d){return n.toLocaleString('es-AR',{minimumFractionDigits:d,maximumFractionDigits:d});};
-  function money(n){return '$'+fmt(n,n>=1000?0:2);}
-  function calc(){
-    var inv=parseFloat($('c-inv').value), l=parseFloat($('c-leads').value), v=parseFloat($('c-ventas').value), err=$('o-err');
-    err.hidden=true;
-    if(!(inv>0)||!(l>0)){ $('o-cpl').textContent='—';$('o-rate').textContent='—';$('o-cpv').textContent='—';$('o-say').textContent='';err.textContent='Completá la inversión y la cantidad de leads con números mayores a cero.';err.hidden=false;return;}
-    if(v>l){err.textContent='Hay más ventas que leads. Revisá los números: las ventas salen de los leads.';err.hidden=false;}
-    var cpl=inv/l;
-    $('o-cpl').textContent=money(cpl);
-    if(!(v>0)){$('o-rate').textContent='0%';$('o-cpv').textContent='Sin ventas';$('o-say').innerHTML='Con esa inversión no salió ninguna venta. <b>El problema casi seguro está después del clic</b>, y es lo primero que reviso.';return;}
-    var rate=v/l*100, cpv=inv/v;
-    $('o-rate').textContent=fmt(rate,rate<10?1:0)+'%';
-    $('o-cpv').textContent=money(cpv);
-    var x=Math.round(cpv/cpl);
-    $('o-say').innerHTML='Cada venta te cuesta <b>'+(x>=2?x+' veces':'más que')+' lo que muestra el costo por lead.</b> Esa diferencia se arma en la landing, en la respuesta y en la venta. Ahí es donde miro.';
-  }
-  ['c-inv','c-leads','c-ventas'].forEach(function(id){$(id).addEventListener('input',calc);});
-  calc();
 
   // Casos en pestañas
   var tabs=[['t-alf','c-alf'],['t-pic','c-pic']];
