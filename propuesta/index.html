@@ -1,0 +1,623 @@
+<title>Keyframe · propuesta de landing</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Schibsted+Grotesk:wght@400;600;700;800;900&display=swap">
+<style>
+/* Layout: la página se lee como una cuenta revisada por Lucía.
+   Papel blanco, tinta negra, trazos a mano que señalan y una sola marca lima por pantalla.
+   Paleta del manual 2026, sin colores nuevos. Un solo tema claro, elegido a propósito:
+   la marca vive en blanco y negro y el cierre va en negro. */
+:root{
+  --paper:#FFFFFF;      /* fondo principal */
+  --stone:#F4F4F2;      /* fondos alternos */
+  --ink:#111111;        /* texto, botones, trazos */
+  --muted:#6B6B6B;      /* texto secundario, solo sobre blanco o gris claro */
+  --line:#E4E4E1;       /* separadores */
+  --lime:#D9FF3F;       /* resaltador: una cosa por pantalla, ≤10% */
+  --on-ink:#FFFFFF;
+  --on-ink-muted:#B9B9B4;
+  --f-text:"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-hand:"Caveat Brush", "Schibsted Grotesk", cursive;
+  --wrap:1180px;
+  --gut:max(16px, env(safe-area-inset-left, 0px));
+  --gut-r:max(16px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+::selection{background:var(--lime);color:var(--ink)}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1.5px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:4px}
+.dark :focus-visible{outline-color:var(--on-ink)}
+img{max-width:100%;display:block}
+h1,h2,h3{text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+.sec{padding-block:clamp(72px,10vw,128px)}
+.sec.stone{background:var(--stone)}
+.h2{font-weight:900;font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1;letter-spacing:-.045em;max-width:20ch}
+.lede{font-size:clamp(1.125rem,1.6vw,1.3rem);line-height:1.5;max-width:44ch}
+.label{font-weight:600;font-size:.8125rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hand{font-family:var(--f-hand);font-weight:400;letter-spacing:0;line-height:1}
+
+/* Resaltador: el gesto del logo. Mitad de abajo, -1.5°, bordes redondeados. */
+.hl{position:relative;white-space:nowrap;z-index:0}
+.hl::before{content:"";position:absolute;z-index:-1;left:-.05em;right:-.07em;bottom:.04em;height:.44em;background:var(--lime);border-radius:.09em;transform:rotate(-1.5deg);transform-origin:left center}
+/* Sobre negro, el resaltador pasa a subrayado */
+.ul{position:relative;white-space:nowrap}
+.ul::after{content:"";position:absolute;left:-.02em;right:-.04em;bottom:-.06em;height:.12em;background:var(--lime);border-radius:.06em;transform:rotate(-1.5deg)}
+@media (prefers-reduced-motion:no-preference){
+  .hl.draw::before{animation:mark .9s cubic-bezier(.16,1,.3,1) .25s both}
+  .stroke-draw path{stroke-dasharray:1;stroke-dashoffset:0}
+  .stroke-draw.go path{animation:ink 1.1s cubic-bezier(.16,1,.3,1) both}
+}
+@keyframes mark{from{transform:rotate(-1.5deg) scaleX(.04)}to{transform:rotate(-1.5deg) scaleX(1)}}
+@keyframes ink{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+
+/* Botones: un solo estilo rectangular */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:52px;padding:0 1.5em;border-radius:6px;font:700 1.0625rem/1 var(--f-text);text-decoration:none;border:2px solid var(--ink);cursor:pointer;transition:transform .2s cubic-bezier(.16,1,.3,1),background-color .2s,color .2s}
+.btn-primary{background:var(--ink);color:var(--on-ink)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--on-ink)}
+.dark .btn-primary{background:var(--on-ink);color:var(--ink);border-color:var(--on-ink)}
+.btn:active{transform:translateY(0)}
+
+/* Header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px}
+.logo img{height:40px;width:auto}
+.nav{display:flex;align-items:center;gap:28px;font-size:.9875rem}
+.nav a{text-decoration:none;padding-block:10px}
+.nav a:hover{text-decoration:underline}
+.nav .btn{min-height:44px;font-size:.9375rem;padding:0 1.1em}
+.menu-btn{display:none}
+
+/* Hero */
+.hero{padding-block:clamp(48px,7vw,96px) clamp(56px,8vw,104px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.h1{font-weight:900;font-size:clamp(2.9rem,6.2vw,5.4rem);line-height:.94;letter-spacing:-.045em}
+.hero-copy{display:grid;gap:28px}
+.who{display:flex;align-items:center;gap:14px;font-size:1rem;line-height:1.45;max-width:46ch}
+.who img{width:48px;height:48px;border-radius:50%;object-fit:cover;flex:none}
+.who strong{font-weight:700}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.terms{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.9375rem;color:var(--muted)}
+.terms span{display:inline-flex;align-items:center;gap:8px}
+.terms span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--line);margin-right:10px}
+.terms b{color:var(--ink);font-weight:700}
+
+/* El plan: hoja de papel con trazos */
+.plan-fig{margin:0;display:grid;gap:14px}
+.plan{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:28px 28px 24px;box-shadow:0 1px 2px rgba(17,17,17,.06),0 18px 40px -18px rgba(17,17,17,.22);transform:rotate(1.2deg)}
+.plan-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:6px}
+.plan-head h3{font-weight:800;font-size:1.125rem;letter-spacing:-.02em}
+.plan-head span{font-size:.8125rem;color:var(--muted)}
+.plan ol{list-style:none;margin:0;padding:0}
+.plan li{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;padding-block:14px;border-bottom:1px solid var(--line);font-size:.9375rem;line-height:1.45}
+.plan li:last-child{border-bottom:0}
+.plan li .hand{font-size:2.1rem;margin-top:-4px}
+.plan li b{display:block;font-weight:700;font-size:1rem}
+.plan li em{font-style:normal;color:var(--muted);display:block;margin-top:4px}
+.plan .ring{position:absolute;left:-14px;top:2px;width:calc(100% + 26px);height:calc(100% - 2px);pointer-events:none;overflow:visible}
+.plan .note{position:absolute;right:18px;bottom:-12px;line-height:1.2;font-weight:700;font-size:.9375rem;background:var(--paper);padding:0 6px;transform:rotate(-3deg)}
+.plan-fig figcaption{font-size:.875rem;color:var(--muted);padding-left:4px}
+.proof{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:4px 16px;margin-top:4px;padding-top:22px;border-top:1px solid var(--line);font-size:1rem}
+.proof .hand{font-size:2.2rem}
+.proof a{font-weight:700;grid-column:2}
+
+/* Tabla del embudo */
+.funnel-head{display:grid;gap:20px;margin-bottom:48px}
+.funnel{width:100%;border-collapse:collapse}
+.funnel th,.funnel td{padding:20px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.funnel thead th{font-weight:600;font-size:.8125rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink)}
+.funnel thead th:nth-child(n+2){width:22%}
+.funnel tbody th{font-weight:400}
+.step{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start}
+.step .hand{font-size:2rem;margin-top:-2px}
+.step b{display:block;font-weight:800;font-size:1.25rem;letter-spacing:-.02em;line-height:1.2}
+.step div>span{color:var(--muted);font-size:.9375rem}
+.yes,.no{display:inline-flex;align-items:center;gap:10px;font-size:.9375rem}
+.yes svg,.no svg{width:26px;height:26px;flex:none}
+.no{color:var(--muted)}
+tr.lost td{padding:0;border-bottom:0}
+.lost-band{position:relative;display:flex;align-items:center;gap:14px;padding:22px 16px 18px;font-weight:800;font-size:clamp(1.15rem,2vw,1.4rem);letter-spacing:-.02em}
+.lost-band svg{width:120px;height:34px;flex:none;overflow:visible}
+.lost-band::after{content:"";flex:1;border-top:2px dashed var(--ink)}
+tr.after{background:var(--paper)}
+.sec.stone tr.after{background:transparent}
+.funnel-scroll{overflow-x:auto}
+
+/* Casos */
+.cases{display:grid;gap:0;margin-top:56px;border-top:2px solid var(--ink)}
+.case{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);padding-block:44px;border-bottom:1px solid var(--line);align-items:start}
+.case-num{position:relative;display:inline-block;font-size:clamp(5rem,10vw,7.5rem);line-height:.85}
+.case-num.barred::before{content:"";position:absolute;z-index:-1;left:-.04em;right:-.06em;bottom:.08em;height:.32em;background:var(--lime);border-radius:.06em;transform:rotate(-1.5deg)}
+.case-num-wrap{position:relative;isolation:isolate}
+.case-num .circ{position:absolute;inset:-.22em -.28em -.12em -.22em;width:calc(100% + .5em);height:calc(100% + .34em);overflow:visible}
+.case h3{font-weight:800;font-size:1.5rem;letter-spacing:-.025em}
+.case .meta{font-size:.9375rem;color:var(--muted);margin-top:2px}
+.case .what{margin-top:16px;max-width:52ch}
+.case dl{margin:0;display:grid;gap:14px}
+.case dl div{display:grid;gap:2px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.case dl div:last-child{border-bottom:0}
+.case dt{font-size:.875rem;color:var(--muted)}
+.case dd{margin:0;font-weight:800;font-size:1.375rem;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pending{margin-top:18px;border:1.5px dashed #9A9A96;border-radius:4px;padding:12px 14px;font-size:.875rem;color:var(--muted);max-width:52ch}
+.cases-note{margin-top:22px;font-size:.9375rem;color:var(--muted);max-width:70ch}
+
+/* La auditoría */
+.offer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:clamp(32px,6vw,96px);align-items:start;margin-top:56px}
+.price{display:grid;gap:6px;position:sticky;top:110px}
+.price .from{font-size:1rem;color:var(--muted)}
+.price .amount{font-weight:900;font-size:clamp(4rem,8vw,6rem);letter-spacing:-.05em;line-height:.9}
+.price .amount small{font-size:.32em;font-weight:800;letter-spacing:-.01em;vertical-align:.95em;margin-right:.2em}
+.price p{max-width:30ch;margin-top:10px}
+.price .btn{margin-top:22px;justify-self:start}
+.timeline{list-style:none;margin:0;padding:0;display:grid}
+.timeline li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;padding-block:26px;border-bottom:1px solid var(--line)}
+.timeline li:first-child{border-top:2px solid var(--ink)}
+.timeline .hand{font-size:3rem}
+.timeline h3{font-weight:800;font-size:1.375rem;letter-spacing:-.02em;margin-bottom:6px}
+.timeline p{max-width:50ch}
+.guarantee{position:relative;margin-top:34px;font-weight:800;font-size:clamp(1.3rem,2.4vw,1.75rem);letter-spacing:-.025em;line-height:1.25;max-width:30ch}
+.guarantee svg{position:absolute;left:0;bottom:-16px;width:min(100%,520px);height:18px;overflow:visible}
+
+/* Sobre mí */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:clamp(32px,6vw,88px);align-items:start}
+.about-photo{margin:0;display:grid;gap:10px}
+.about-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;filter:grayscale(.1) contrast(1.03)}
+.about-photo figcaption{font-size:.875rem;color:var(--muted)}
+.about-body{display:grid;gap:26px}
+.about-body .lede{max-width:52ch}
+.tools{font-size:.9375rem;color:var(--muted);max-width:60ch}
+.tools b{color:var(--ink);font-weight:700}
+.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:8px}
+.quotes figure{margin:0;padding-top:18px;border-top:2px solid var(--ink)}
+.quotes blockquote{margin:0;font-weight:700;font-size:1.125rem;line-height:1.4;letter-spacing:-.01em}
+.quotes figcaption{margin-top:12px;font-size:.875rem;color:var(--muted)}
+
+/* Para quién es */
+.fit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,5vw,72px);margin-top:48px}
+.fit h3{font-weight:800;font-size:1.375rem;letter-spacing:-.02em;padding-bottom:14px;border-bottom:2px solid var(--ink)}
+.fit ul{list-style:none;margin:0;padding:0}
+.fit li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding-block:16px;border-bottom:1px solid var(--line)}
+.fit li svg{width:26px;height:26px;margin-top:1px}
+
+/* Preguntas */
+.faq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,48px);margin-top:48px}
+.faq div{border-top:2px solid var(--ink);padding-top:18px;display:grid;gap:10px;align-content:start}
+.faq h3{font-weight:800;font-size:1.1875rem;letter-spacing:-.02em;line-height:1.25}
+.faq p{color:#2E2E2E;font-size:1rem}
+
+/* Cierre */
+.dark{background:var(--ink);color:var(--on-ink)}
+.close .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,6vw,96px);align-items:start}
+.close .logo-dark{height:44px;width:auto;margin-bottom:40px}
+.close .h2{max-width:14ch}
+.recap{margin-top:30px;display:grid;gap:12px;font-size:1.0625rem;color:var(--on-ink-muted);max-width:40ch}
+.recap b{color:var(--on-ink);font-weight:700}
+.recap a{color:var(--on-ink);font-weight:700}
+form{display:grid;gap:20px}
+.field{display:grid;gap:8px}
+.field label{font-weight:700;font-size:.9375rem}
+.field .hint{font-size:.8125rem;color:var(--on-ink-muted);margin-top:-4px}
+.field input,.field select,.field textarea{width:100%;min-height:52px;padding:12px 14px;border-radius:6px;border:1.5px solid #4A4A48;background:#1C1C1B;color:var(--on-ink);font:400 1rem/1.4 var(--f-text);transition:border-color .2s}
+.field textarea{min-height:120px;resize:vertical}
+.field input::placeholder,.field textarea::placeholder{color:#A3A39E}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:#77776F}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--on-ink);box-shadow:0 0 0 3px rgba(255,255,255,.18)}
+.field[data-error] input,.field[data-error] select{border-color:#FF9C8A}
+.field .err{display:none;font-size:.875rem;color:#FFB4A6}
+.field[data-error] .err{display:block}
+.form-foot{display:grid;gap:14px}
+.form-foot .btn{width:100%}
+.form-foot .btn[disabled]{opacity:.6;cursor:progress}
+.small{font-size:.875rem;color:var(--on-ink-muted)}
+.small a{color:var(--on-ink)}
+.done{border:1.5px solid #4A4A48;border-radius:6px;padding:28px;display:grid;gap:10px}
+.done h3{font-weight:800;font-size:1.5rem;letter-spacing:-.02em}
+.foot{border-top:1px solid #2A2A29;padding-block:28px;font-size:.875rem;color:var(--on-ink-muted)}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px}
+.foot a{color:var(--on-ink);text-decoration:none;padding-block:12px}
+.foot a:hover{text-decoration:underline}
+.foot nav{display:flex;gap:20px}
+
+/* Barra fija en mobile */
+.sticky{display:none}
+
+/* Notas de la propuesta */
+.notes{background:var(--stone);border-top:6px solid var(--ink)}
+.notes .h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.swatches{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:36px}
+.sw{display:grid;gap:8px;font-size:.875rem;align-content:start}
+.sw i{display:block;height:96px;border-radius:6px;border:1px solid var(--line)}
+.sw b{font-weight:800;font-size:1rem}
+.sw code{font-family:var(--f-text);font-weight:600;color:var(--muted)}
+.ratio{display:flex;height:44px;border-radius:6px;overflow:hidden;border:1px solid var(--line);margin-top:28px}
+.ratio span{display:flex;align-items:center;padding-left:10px;font-size:.8125rem;font-weight:600;white-space:nowrap;overflow:hidden}
+.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 56px;margin-top:44px}
+.rules h3{font-weight:800;font-size:1.125rem;margin-bottom:10px}
+.rules ul{margin:0;padding-left:1.1em;display:grid;gap:8px;font-size:.9875rem}
+.changes{margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px}
+.changes div{padding-block:16px;border-bottom:1px solid #D7D7D3;display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;font-size:.9875rem}
+.changes b{font-weight:800}
+
+@media (max-width:960px){
+  .hero .wrap,.case,.offer,.about,.close .wrap{grid-template-columns:minmax(0,1fr)}
+  .case{gap:18px}
+  .price{position:static}
+  .faq{grid-template-columns:minmax(0,1fr)}
+  .swatches{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .rules,.changes{grid-template-columns:minmax(0,1fr)}
+  .plan{transform:rotate(.6deg)}
+}
+@media (max-width:720px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px var(--gut-r) 16px var(--gut)}
+  .nav.open{display:flex}
+  .nav a{padding-block:14px;border-bottom:1px solid var(--line)}
+  .nav .btn{display:none}
+  .menu-btn{display:inline-flex;min-height:44px;padding:0 14px;border:1.5px solid var(--ink);border-radius:6px;background:none;font:700 .9375rem var(--f-text);color:var(--ink);align-items:center;cursor:pointer}
+  .logo img{height:34px}
+  .ctas .btn{flex:1 1 100%}
+  .fit,.quotes{grid-template-columns:minmax(0,1fr)}
+  .funnel thead th:nth-child(n+2){width:68px}
+  .funnel thead th{font-size:.6875rem;letter-spacing:.06em}
+  .ratio span{font-size:0;padding:0}
+  .funnel th,.funnel td{padding:16px 8px}
+  .step{grid-template-columns:30px minmax(0,1fr);gap:8px}
+  .step b{font-size:1.0625rem}
+  .yes span,.no span{display:none}
+  .lost-band svg{width:64px}
+  .changes div{grid-template-columns:minmax(0,1fr);gap:4px}
+  .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25;gap:10px;padding:10px var(--gut-r) calc(10px + env(safe-area-inset-bottom,0px)) var(--gut);background:var(--paper);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+  .sticky.on{transform:none}
+  .sticky .btn{flex:1;min-height:48px}
+  .sticky .btn-ghost{flex:0 0 auto}
+  body{padding-bottom:0}
+}
+</style>
+
+<!-- Trazos reutilizables: tilde y cruz a mano, en negro -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="tick" viewBox="0 0 26 26"><path d="M3.5 14.2c2.4 1.6 4.3 3.7 6 6.4 3.1-6.6 7.4-12 13.2-16.6" fill="none" stroke="#111" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="cross" viewBox="0 0 26 26"><path d="M5 5.5c5.6 4.8 10.6 10 16 15.4M20.6 5c-5.4 5.2-10.6 10.6-15.4 16.2" fill="none" stroke="#111" stroke-width="2.6" stroke-linecap="round"/></symbol>
+    <symbol id="dash" viewBox="0 0 26 26"><path d="M6 13.4c4.6-.6 9.4-.8 14 .2" fill="none" stroke="#9A9A96" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Keyframe, inicio"><img src="assets/keyframe-logo.svg" alt="Keyframe" width="117" height="40"></a>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">Menú</button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#que-reviso">Qué reviso</a>
+      <a href="#casos">Casos</a>
+      <a href="#auditoria">La auditoría</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a class="btn btn-primary" href="#contacto">Pedir auditoría</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1 class="h1" id="h1">Reviso tu pauta hasta la <span class="hl draw">venta</span>, no hasta el clic.</h1>
+        <p class="lede">Casi nunca el problema está solo en las campañas. Reviso tus cuentas, la landing y cómo responden los leads en una auditoría 1:1, y te llevás el plan por escrito.</p>
+        <p class="who"><img src="assets/lucia-560.jpg" alt="" width="48" height="48"><span><strong>Soy Lucía.</strong> Audito Google y Meta Ads (también TikTok, LinkedIn y Mercado Ads) para negocios, agencias y freelancers de LATAM.</span></p>
+        <div class="ctas" id="hero-ctas">
+          <a class="btn btn-primary" href="#contacto">Pedir auditoría</a>
+          <a class="btn btn-ghost" href="https://wa.me/5491123439712?text=Hola%20Lu%2C%20quiero%20consultarte%20por%20una%20auditor%C3%ADa" target="_blank" rel="noopener">Escribirme por WhatsApp</a>
+        </div>
+        <p class="terms"><span><b>Desde USD 80</b></span><span>30 min de videollamada</span><span>Plan escrito en 48 h</span></p>
+        <p class="proof"><span class="hand">x2,1</span><span>de facturación mensual en La Alfombrería (Chile), una cuenta que gestioné.</span> <a href="#casos">Ver casos</a></p>
+      </div>
+
+      <figure class="plan-fig">
+        <div class="plan" aria-label="Ejemplo de plan de acción">
+          <div class="plan-head"><h3>Plan de acción</h3><span>Tienda online · ejemplo</span></div>
+          <ol>
+            <li>
+              <span class="hand" aria-hidden="true">1</span>
+              <span><b>Respuesta a los leads</b>Hoy contestan en 6 h. Llevarlo a menos de 15 min en horario comercial.<em>Qué esperar: más ventas con los mismos leads.</em></span>
+              <svg class="ring stroke-draw" viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M28 12C110 2 300 -2 386 16c14 10 10 60-6 74-90 12-270 14-354 0C6 84 2 34 12 20c8-10 30-12 52-13" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+              <span class="note" aria-hidden="true">Empezá por acá</span>
+            </li>
+            <li><span class="hand" aria-hidden="true">2</span><span><b>Formulario de la landing</b>Pide 9 datos. Dejar 4.<em>Qué esperar: más consultas y un costo por lead más bajo.</em></span></li>
+            <li><span class="hand" aria-hidden="true">3</span><span><b>Medición en GA4</b>La página de gracias cuenta compras repetidas. Corregirlo antes de mover presupuesto.</span></li>
+            <li><span class="hand" aria-hidden="true">4</span><span><b>Campañas</b>Recién ahora: separar búsquedas de marca y genéricas.</span></li>
+          </ol>
+        </div>
+        <figcaption>Así se ve el plan que te mando. Ejemplo con datos inventados.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec stone" id="que-reviso" aria-labelledby="h-reviso">
+    <div class="wrap">
+      <div class="funnel-head">
+        <h2 class="h2" id="h-reviso">La mayoría de las auditorías terminan en el clic. Yo sigo hasta la venta.</h2>
+        <p class="lede">Un reporte de campañas te dice cuánto costó cada clic. No te dice qué pasó después.</p>
+      </div>
+      <div class="funnel-scroll">
+        <table class="funnel">
+          <thead><tr><th scope="col">Qué se mira</th><th scope="col">Reporte de tu agencia</th><th scope="col">Mi auditoría</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><div class="step"><span class="hand" aria-hidden="true">1</span><div><b>Anuncio</b><span>Creativo, mensaje y audiencia</span></div></div></th><td><span class="yes"><svg aria-hidden="true"><use href="#tick"/></svg><span>Lo mira</span></span></td><td><span class="yes"><svg aria-label="Incluido" role="img"><use href="#tick"/></svg><span>Lo reviso</span></span></td></tr>
+            <tr><th scope="row"><div class="step"><span class="hand" aria-hidden="true">2</span><div><b>Clic</b><span>CTR, CPC, términos de búsqueda</span></div></div></th><td><span class="yes"><svg aria-hidden="true"><use href="#tick"/></svg><span>Lo mira</span></span></td><td><span class="yes"><svg aria-label="Incluido" role="img"><use href="#tick"/></svg><span>Lo reviso</span></span></td></tr>
+            <tr class="lost"><td colspan="3"><div class="lost-band"><svg class="stroke-draw" viewBox="0 0 120 34" aria-hidden="true"><path pathLength="1" d="M4 6c18 22 52 26 98 18m-10-12c6 4 9 8 12 12-5 3-10 5-15 9" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Acá se suele perder la plata</div></td></tr>
+            <tr class="after"><th scope="row"><div class="step"><span class="hand" aria-hidden="true">3</span><div><b>Landing</b><span>Mensaje, velocidad, formulario</span></div></div></th><td><span class="no"><svg aria-label="No incluido" role="img"><use href="#dash"/></svg><span>No lo mira</span></span></td><td><span class="yes"><svg aria-label="Incluido" role="img"><use href="#tick"/></svg><span>Lo reviso</span></span></td></tr>
+            <tr class="after"><th scope="row"><div class="step"><span class="hand" aria-hidden="true">4</span><div><b>Lead</b><span>Calidad y medición real</span></div></div></th><td><span class="no"><svg aria-label="No incluido" role="img"><use href="#dash"/></svg><span>No lo mira</span></span></td><td><span class="yes"><svg aria-label="Incluido" role="img"><use href="#tick"/></svg><span>Lo reviso</span></span></td></tr>
+            <tr class="after"><th scope="row"><div class="step"><span class="hand" aria-hidden="true">5</span><div><b>Respuesta</b><span>Cuánto tardan y cómo contestan</span></div></div></th><td><span class="no"><svg aria-label="No incluido" role="img"><use href="#dash"/></svg><span>No lo mira</span></span></td><td><span class="yes"><svg aria-label="Incluido" role="img"><use href="#tick"/></svg><span>Lo reviso</span></span></td></tr>
+            <tr class="after"><th scope="row"><div class="step"><span class="hand" aria-hidden="true">6</span><div><b><span class="hl">Venta</span></b><span>Lo único que importa</span></div></div></th><td><span class="no"><svg aria-label="No incluido" role="img"><use href="#dash"/></svg><span>No lo mira</span></span></td><td><span class="yes"><svg aria-label="Incluido" role="img"><use href="#tick"/></svg><span>Lo reviso</span></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="casos" aria-labelledby="h-casos">
+    <div class="wrap">
+      <h2 class="h2" id="h-casos">Dos cuentas que gestioné, con los números de cada negocio.</h2>
+      <div class="cases">
+        <article class="case">
+          <div class="case-num-wrap"><span class="case-num barred hand">x2,1</span></div>
+          <div>
+            <h3>La Alfombrería</h3>
+            <p class="meta">E-commerce · Chile · últimos 6 meses vs. el mismo período del año anterior</p>
+            <p class="what">La facturación mensual pasó de 10M a 21M CLP. Reestructuré la cuenta, mejoré el SEO de los productos, probé contenido y una propuesta comercial nueva, y sumé un agente de IA por WhatsApp para las alfombras más caras, donde decidir cuesta más.</p>
+            <p class="pending">Pendiente: una frase del cliente o una captura de GA4 con los datos tapados.</p>
+          </div>
+          <dl>
+            <div><dt>Facturación mensual</dt><dd>10M → 21M CLP</dd></div>
+            <div><dt>Compradores nuevos</dt><dd>+40%</dd></div>
+            <div><dt>ROAS</dt><dd>15</dd></div>
+          </dl>
+        </article>
+        <article class="case">
+          <div class="case-num-wrap"><span class="case-num hand">+60%<svg class="circ stroke-draw" viewBox="0 0 200 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M40 10C90 0 170 4 190 30c12 26-12 56-70 64-60 8-106-6-114-30C-2 40 20 16 62 8" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span></div>
+          <div>
+            <h3>Piccadely</h3>
+            <p class="meta">E-commerce · Argentina · un mes sin fechas especiales vs. el mismo mes del año anterior</p>
+            <p class="what">Más compras y más valor de compras con la misma inversión en publicidad. Encontré dónde se perdía plata en Google Ads, mejoré la web y armé una oferta comercial pensada para su público.</p>
+            <p class="pending">Pendiente: una frase del cliente o una captura con los datos tapados.</p>
+          </div>
+          <dl>
+            <div><dt>Compras y valor de compras</dt><dd>+60%</dd></div>
+            <div><dt>Inversión en publicidad</dt><dd>La misma</dd></div>
+          </dl>
+        </article>
+      </div>
+      <p class="cases-note">Fueron cuentas que gestioné durante meses, no auditorías sueltas. Los números los reportó cada negocio.</p>
+    </div>
+  </section>
+
+  <section class="sec stone" id="auditoria" aria-labelledby="h-auditoria">
+    <div class="wrap">
+      <h2 class="h2" id="h-auditoria">Una auditoría, un <span class="hl">plan</span>.</h2>
+      <div class="offer">
+        <div class="price">
+          <span class="from">Auditoría 1:1, desde</span>
+          <span class="amount"><small>USD</small>80</span>
+          <p>Una videollamada de 30 minutos y el plan por escrito en 48 h. 100% online.</p>
+          <a class="btn btn-primary" href="#contacto">Pedir auditoría</a>
+        </div>
+        <div>
+          <ol class="timeline">
+            <li><span class="hand" aria-hidden="true">1</span><div><h3>Antes</h3><p>Me das acceso de lectura a tus cuentas y a GA4, y me contás tu negocio en un formulario corto. Reviso todo antes de la llamada.</p></div></li>
+            <li><span class="hand" aria-hidden="true">2</span><div><h3>La sesión</h3><p>Videollamada de 30 minutos. Te muestro lo que encontré en tus cuentas y lo charlamos.</p></div></li>
+            <li><span class="hand" aria-hidden="true">3</span><div><h3>Después</h3><p>Te mando el plan por escrito en 48 h: qué cambiar, en qué orden y qué esperar de cada cambio.</p></div></li>
+          </ol>
+          <p class="guarantee">Si no salís con un plan claro, la segunda sesión no se cobra.<svg class="stroke-draw" viewBox="0 0 520 18" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 10c90-6 240-9 360-5 50 2 100 5 150 2" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sobre-mi" aria-labelledby="h-sobre">
+    <div class="wrap about">
+      <figure class="about-photo">
+        <img src="assets/lucia-560.jpg" alt="Lucía, de frente, sonriendo" width="560" height="700" loading="lazy">
+        <figcaption>Lucía · Buenos Aires</figcaption>
+      </figure>
+      <div class="about-body">
+        <h2 class="h2" id="h-sobre">Soy Lucía.</h2>
+        <p class="lede">Trabajo en paid media hace más de 5 años. Manejé cuentas de marcas grandes desde agencia y de negocios chicos que invertían su propia plata, en distintos países de LATAM.</p>
+        <p class="tools">Desde agencia manejé cuentas de <b>Google, Movistar, Sodimac, BBVA, Hilton, Samsung y AutoCity</b>. Trabajo con Google Ads, Meta Ads, TikTok Ads, LinkedIn Ads, GA4, DV360 y SA360.</p>
+        <div class="quotes">
+          <figure>
+            <blockquote>"Posee un manejo técnico de Google Ads que pocos tienen, pero su verdadera fortaleza es la comunicación."</blockquote>
+            <figcaption>Matías Viera · Country Manager Uruguay, Growth Digital · trabajamos juntos en agencia</figcaption>
+          </figure>
+          <figure>
+            <blockquote>"Puedo delegar con confianza, sabiendo que hay criterio y mirada estratégica detrás de cada decisión."</blockquote>
+            <figcaption>Belén La Banca · Media Planner Sr, Off-On · trabajamos juntas en agencia</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec stone" id="para-quien" aria-labelledby="h-fit">
+    <div class="wrap">
+      <h2 class="h2" id="h-fit">Para quién es.</h2>
+      <div class="fit">
+        <div>
+          <h3>Te sirve si…</h3>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg><span>Ya invertís en pauta y querés entender por qué no rinde.</span></li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg><span>Podés darme acceso de lectura a tus cuentas.</span></li>
+            <li><svg aria-hidden="true"><use href="#tick"/></svg><span>Estás dispuesto a revisar la landing y el proceso de venta, no solo los anuncios.</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>No te sirve si…</h3>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#cross"/></svg><span>Buscás que alguien gestione tus campañas día a día.</span></li>
+            <li><svg aria-hidden="true"><use href="#cross"/></svg><span>Querés un curso grabado.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="preguntas" aria-labelledby="h-faq">
+    <div class="wrap">
+      <h2 class="h2" id="h-faq">Lo que me preguntan antes de arrancar.</h2>
+      <div class="faq">
+        <div><h3>¿Necesito darte acceso a mis cuentas?</h3><p>Sí, acceso de lectura a las cuentas publicitarias y a GA4. No necesito permisos de edición.</p></div>
+        <div><h3>¿Vos implementás los cambios?</h3><p>La auditoría es para que tengas claro qué hacer y en qué orden. Lo implementa tu equipo o tu agencia; si necesitás acompañamiento después, lo armo aparte.</p></div>
+        <div><h3>¿Sirve si soy analista o freelancer?</h3><p>Sí. Muchas consultas son de gente de agencia con una cuenta trabada que necesita una segunda mirada.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark close" id="contacto" aria-labelledby="h-contacto">
+    <div class="wrap">
+      <div>
+        <img class="logo-dark" src="assets/keyframe-logo-blanco.svg" alt="Keyframe" width="129" height="44">
+        <h2 class="h2" id="h-contacto">Contame qué está pasando con tu <span class="ul">pauta</span>.</h2>
+        <div class="recap">
+          <p><b>Desde USD 80.</b> 30 minutos de videollamada y el plan por escrito en 48 h.</p>
+          <p>Si no salís con un plan claro, la segunda sesión no se cobra.</p>
+          <p>Te respondo en menos de 48 h. ¿Preferís WhatsApp? <a href="https://wa.me/5491123439712?text=Hola%20Lu%2C%20quiero%20consultarte%20por%20una%20auditor%C3%ADa" target="_blank" rel="noopener">Escribime por acá</a>.</p>
+        </div>
+      </div>
+      <div id="form-slot">
+        <form id="form" novalidate>
+          <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required><span class="err" id="e-nombre">Poné tu nombre así sé cómo llamarte.</span></div>
+          <div class="field"><label for="f-contacto">WhatsApp o email</label><span class="hint" id="h-contacto-hint">Con código de país, por ejemplo +54 9 11 2345 6789, o tu email.</span><input id="f-contacto" name="contacto" autocomplete="email" aria-describedby="h-contacto-hint" required><span class="err" id="e-contacto">Revisá el dato: necesito un WhatsApp con código de país o un email válido.</span></div>
+          <div class="field"><label for="f-perfil">Sos…</label><select id="f-perfil" name="perfil" required><option value="">Elegí una opción</option><option>Dueño o dueña de un negocio</option><option>Analista de agencia</option><option>Freelancer</option><option>Otro</option></select><span class="err" id="e-perfil">Elegí la opción que más se parezca a tu caso.</span></div>
+          <div class="field"><label for="f-problema">¿Qué está pasando? <span class="small">(opcional)</span></label><textarea id="f-problema" name="problema" placeholder="Ej: invierto en Meta hace 3 meses, me llegan leads pero no compran."></textarea></div>
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit" id="f-submit">Pedir auditoría</button>
+            <p class="small">Sin compromiso. Tus datos solo se usan para responderte. <a href="https://keyframelatam.com/privacidad" target="_blank" rel="noopener">Política de privacidad</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="dark foot">
+  <div class="wrap">
+    <span>© 2026 Keyframe · Auditorías de pauta para LATAM</span>
+    <nav aria-label="Redes"><a href="https://www.linkedin.com/company/keyframe-ar" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/keyframe.ar" target="_blank" rel="noopener">Instagram</a><a href="#contacto">Contacto</a></nav>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <a class="btn btn-primary" href="#contacto" tabindex="-1">Pedir auditoría</a>
+  <a class="btn btn-ghost" href="https://wa.me/5491123439712?text=Hola%20Lu%2C%20quiero%20consultarte%20por%20una%20auditor%C3%ADa" target="_blank" rel="noopener" tabindex="-1">WhatsApp</a>
+</div>
+
+<section class="sec notes" id="sistema" aria-labelledby="h-notes">
+  <div class="wrap">
+    <p class="label">Notas de la propuesta · esto no va en la web</p>
+    <h2 class="h2" id="h-notes" style="margin-top:14px">La paleta no cambia. Cambia cómo se usa.</h2>
+    <p class="lede" style="margin-top:18px;max-width:62ch">El manual 2026 ya define seis colores, y cambiarlos te obligaría a rehacer el logo, las redes y los carruseles. El aire de plantilla no viene de los colores: viene de usar el lima en todos lados y de que todas las secciones se arman igual. Por eso la propuesta asigna un rol a cada color y suma los trazos a mano del manual para que la web parezca una cuenta revisada.</p>
+
+    <div class="swatches">
+      <div class="sw"><i style="background:#FFFFFF"></i><b>Blanco</b><code>#FFFFFF</code><span>Fondo principal. Hero, casos, sobre mí y preguntas.</span></div>
+      <div class="sw"><i style="background:#F4F4F2"></i><b>Gris claro</b><code>#F4F4F2</code><span>Secciones alternas: qué reviso, la auditoría, para quién es.</span></div>
+      <div class="sw"><i style="background:#111111"></i><b>Negro</b><code>#111111</code><span>Texto, botones, trazos a mano y el cierre con el formulario.</span></div>
+      <div class="sw"><i style="background:#6B6B6B"></i><b>Gris texto</b><code>#6B6B6B</code><span>Datos de apoyo. Nunca sobre negro ni sobre lima.</span></div>
+      <div class="sw"><i style="background:#E4E4E1"></i><b>Líneas</b><code>#E4E4E1</code><span>Separadores de tabla y de lista. Nada de tarjetas con sombra.</span></div>
+      <div class="sw"><i style="background:#D9FF3F"></i><b>Lima</b><code>#D9FF3F</code><span>Una marca por pantalla: venta, x2,1, plan, pauta.</span></div>
+    </div>
+
+    <div class="ratio" role="img" aria-label="Proporción aproximada de cada color en la página: blanco 56%, gris claro 22%, negro 16%, gris texto y líneas 4%, lima 2%">
+      <span style="flex:56;background:#FFFFFF">Blanco 56%</span>
+      <span style="flex:22;background:#F4F4F2;border-left:1px solid #E4E4E1">Gris 22%</span>
+      <span style="flex:16;background:#111111;color:#FFFFFF">Negro 16%</span>
+      <span style="flex:4;background:#6B6B6B"></span>
+      <span style="flex:2;background:#D9FF3F"></span>
+    </div>
+
+    <div class="rules">
+      <div>
+        <h3>Reglas del lima en la web</h3>
+        <ul>
+          <li>Una sola marca lima por pantalla, siempre detrás de una palabra o un número.</li>
+          <li>El resaltador imita el logo: la mitad de abajo, inclinado -1,5°, con bordes redondeados.</li>
+          <li>Sobre el negro del cierre pasa a subrayado. Nunca letra lima.</li>
+          <li>Los botones son negros (blancos sobre negro). El lima nunca es un botón.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Trazos a mano</h3>
+        <ul>
+          <li>Números con marcador (Caveat Brush) para pasos, casos y el plan.</li>
+          <li>Trazo fino negro para señalar: el círculo de "Empezá por acá", la flecha de "Acá se suele perder la plata", el subrayado de la garantía.</li>
+          <li>Tildes y cruces dibujadas en lugar de íconos.</li>
+          <li>Máximo dos o tres trazos por pantalla, y cada uno señala un dato.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="h2" style="font-size:clamp(1.5rem,2.6vw,2rem);margin-top:64px">Qué cambié respecto de la web actual</h3>
+    <div class="changes">
+      <div><b>Flujo</b><span>Todos los botones dicen "Pedir auditoría", lo mismo que el formulario. Precio, duración, entrega y garantía se repiten al lado del formulario.</span></div>
+      <div><b>Hero</b><span>El titular pasa a ser el h1. Quién sos y para quién trabajás pasa a una línea legible. Los botones van debajo del texto.</span></div>
+      <div><b>Prueba</b><span>Un dato de caso en el hero. Se aclara que fueron cuentas gestionadas. Se saca "60% ROI" y el "+60%" repetido. Las citas dicen que son de agencia.</span></div>
+      <div><b>Lo que vendés</b><span>El hero muestra un plan de ejemplo con el orden de prioridades, que es el producto.</span></div>
+      <div><b>Ritmo</b><span>Sin etiquetas grises encima de cada título. Cada sección tiene su propia forma: tabla, casos en filas, precio con línea de tiempo, citas, columnas.</span></div>
+      <div><b>Formulario</b><span>Ayuda con el formato del contacto, mensajes de error claros y estado de enviado. El detalle del problema es opcional.</span></div>
+      <div><b>Mobile</b><span>Menú en el header, un solo botón fijo abajo que aparece después del hero, sin el botón duplicado arriba.</span></div>
+      <div><b>Limpieza</b><span>Sin el sello de Lovable, sin los 9 logos que no existen, la foto achicada y "Querés" con tilde.</span></div>
+      <div><b>Para decidir</b><span>"Auditoría" en vez de "asesoría" en el título y el footer, y la lista de plataformas (Google y Meta al frente). Los usé así, pero el manual los tiene como pendientes.</span></div>
+      <div><b>Falta</b><span>Una frase o captura de cada cliente, y aclarar qué hace subir el precio por encima de USD 80.</span></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  // Menú mobile
+  var mb=document.getElementById('menu-btn'), nav=document.getElementById('nav');
+  mb.addEventListener('click',function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.textContent=o?'Cerrar':'Menú';});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.textContent='Menú';}});
+
+  // Trazos que se dibujan al entrar en pantalla (ya visibles por defecto)
+  var strokes=document.querySelectorAll('.stroke-draw');
+  if('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('go');io.unobserve(e.target);}});},{threshold:.6});
+    strokes.forEach(function(s){io.observe(s);});
+  }
+
+  // Barra fija en mobile: aparece cuando los botones del hero salen de pantalla y se oculta en el cierre
+  var sticky=document.getElementById('sticky'), heroC=document.getElementById('hero-ctas'), contact=document.getElementById('contacto');
+  var pastHero=false, inContact=false;
+  function upd(){var on=pastHero&&!inContact;sticky.classList.toggle('on',on);sticky.setAttribute('aria-hidden',!on);sticky.querySelectorAll('a').forEach(function(a){a.tabIndex=on?0:-1;});}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){pastHero=!es[0].isIntersecting&&es[0].boundingClientRect.top<0;upd();}).observe(heroC);
+    new IntersectionObserver(function(es){inContact=es[0].isIntersecting;upd();},{threshold:.15}).observe(contact);
+  }
+
+  // Formulario (demo: no envía nada)
+  var form=document.getElementById('form');
+  function setErr(id,bad){var f=document.getElementById(id).closest('.field');var inp=document.getElementById(id);if(bad){f.setAttribute('data-error','');inp.setAttribute('aria-invalid','true');inp.setAttribute('aria-describedby',(id==='f-contacto'?'h-contacto-hint ':'')+'e-'+id.slice(2));}else{f.removeAttribute('data-error');inp.removeAttribute('aria-invalid');if(id==='f-contacto')inp.setAttribute('aria-describedby','h-contacto-hint');else inp.removeAttribute('aria-describedby');}return bad;}
+  function contactoOk(v){v=v.trim();if(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v))return true;var d=v.replace(/[^\d]/g,'');return /^\+?[\d\s().-]+$/.test(v)&&d.length>=10;}
+  ['f-nombre','f-contacto','f-perfil'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){var el=this;if(el.closest('.field').hasAttribute('data-error')){setErr(id,id==='f-contacto'?!contactoOk(el.value):!el.value.trim());}});});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var b1=setErr('f-nombre',!document.getElementById('f-nombre').value.trim());
+    var b2=setErr('f-contacto',!contactoOk(document.getElementById('f-contacto').value));
+    var b3=setErr('f-perfil',!document.getElementById('f-perfil').value);
+    var first=b1?'f-nombre':b2?'f-contacto':b3?'f-perfil':null;
+    if(first){document.getElementById(first).focus();return;}
+    var btn=document.getElementById('f-submit');btn.disabled=true;btn.textContent='Enviando…';
+    setTimeout(function(){
+      var name=document.getElementById('f-nombre').value.trim().split(' ')[0];
+      document.getElementById('form-slot').innerHTML='<div class="done" role="status" tabindex="-1" id="done"><h3>Listo, '+name.replace(/[<>&"]/g,'')+'.</h3><p>Te respondo en menos de 48 h con los próximos pasos.</p><p class="small">Esto es una demo de la propuesta: no se envió nada.</p></div>';
+      document.getElementById('done').focus();
+    },700);
+  });
+})();
+</script>
